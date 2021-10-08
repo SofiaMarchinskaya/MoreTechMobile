@@ -32,6 +32,7 @@
             android:orientation="horizontal"
             >
             <Button
+                android:id="@+id/novichek"
                 android:layout_width="wrap_content"
                 android:layout_height="38dp"
                 style="@style/grey_rounded_button_style"
@@ -46,6 +47,7 @@
 
             </Button>
             <Button
+                android:id="@+id/prodvinutiy"
                 android:layout_width="wrap_content"
                 android:layout_height="38dp"
                 style="@style/grey_rounded_button_style"
@@ -60,6 +62,7 @@
 
             </Button>
             <Button
+                android:id="@+id/professional"
                 android:layout_width="wrap_content"
                 android:layout_height="38dp"
                 style="@style/grey_rounded_button_style"
