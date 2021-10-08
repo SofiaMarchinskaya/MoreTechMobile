@@ -18,4 +18,8 @@
     <string name="hint_nick">Введите ник</string>
     <string name="nick">Никнейм</string>
     <string name="error_auth">Ошибка авторизации</string>
+    <string name="game">Игра</string>
+    <string name="shop">Магазин</string>
+    <string name="victorina">Викторина</string>
+    <string name="profile">Профиль</string>
 </resources>

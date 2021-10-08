@@ -50,7 +50,7 @@ public class RegisterActivity extends AppCompatActivity implements RegisterPrese
         });
 
         Spannable span = new SpannableString(getString(R.string.have_acc));
-        span.setSpan(new ForegroundColorSpan(Color.parseColor("#005EFF")), 18, 25,
+        span.setSpan(new ForegroundColorSpan(Color.parseColor("#3A83F1")), 18, 25,
                 Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
         bottomText.setText(span);
 

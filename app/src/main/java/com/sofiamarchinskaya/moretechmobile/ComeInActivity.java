@@ -47,7 +47,7 @@ public class ComeInActivity extends AppCompatActivity implements ComeInPresenter
             finish();
         });
         Spannable span = new SpannableString(getString(R.string.register_if_havent));
-        span.setSpan(new ForegroundColorSpan(Color.parseColor("#005EFF")), 14, 31,
+        span.setSpan(new ForegroundColorSpan(Color.parseColor("#3A83F1")), 14, 31,
                 Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
         bottomText.setText(span);
     }
