@@ -20,6 +20,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 
 public class gameFragment extends Fragment implements RuleAdapter.OnItemClicked {
     private TextView showAllText;
@@ -91,8 +92,17 @@ public class gameFragment extends Fragment implements RuleAdapter.OnItemClicked 
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getActivity(),GameActivity.class);
-                if(preferences.getString(Constant.YEAR,null)==null)
-                    preferences.edit().putString(Constant.YEAR,"1").apply();
+                if(preferences.getString(Constant.YEAR,null)==null) {
+                    preferences.edit().putString(Constant.YEAR, "1")
+                            .putInt(Constant.TOTAL_MONEY, Constant.START_MONEY)
+                            .putInt(Constant.HAPPY, Constant.START_HAPPY)
+                            .putStringSet(Constant.INVEST_BANK, new HashSet<String>())
+                            .putStringSet(Constant.BONDS, new HashSet<String>())
+                            .putStringSet(Constant.STOCKS, new HashSet<String>())
+                            .putStringSet(Constant.DEPOSITS, new HashSet<String>())
+                            .putInt(Constant.DEPOSIT, 0)
+                            .apply();
+                }
                 startActivity(intent);
             }
         });
