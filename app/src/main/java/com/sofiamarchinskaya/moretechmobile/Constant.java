@@ -8,8 +8,14 @@ public class Constant {
     public static final String STOCKS = "stocks";
     public static final String DEPOSITS = "deposits";
     public static final String BONDS = "deposits";
+    public static final String INVEST_BANK = "invest_bank";
     public static final String YEAR = "year";
+
+
     public static final int LVL_NOVICHEK = 0;
     public static final int LVL_PRODVIN = 1;
     public static final int LVL_PROFFESIONAL = 2;
+
+    public static final int START_MONEY = 500_000;
+    public static final int START_HAPPY = 60;
 }
