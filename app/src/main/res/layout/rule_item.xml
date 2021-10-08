@@ -10,6 +10,7 @@
         android:id="@+id/cv"
         app:cardBackgroundColor="#F3F7FA"
         app:cardCornerRadius="9dp"
+        app:cardElevation="0dp"
         >
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -24,8 +25,10 @@
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
+
                 />
             <TextView
+                android:layout_marginLeft="12dp"
                 android:layout_width="wrap_content"
                 android:fontFamily="@font/montserrat_medium"
                 android:layout_height="wrap_content"
