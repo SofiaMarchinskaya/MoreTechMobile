@@ -13,6 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="75dp"
         android:background="@color/white"
+        android:theme="@style/Widget.BottomNavigationView"
         app:itemIconTint="@drawable/selector"
         app:itemTextColor="@drawable/selector"
         app:labelVisibilityMode="labeled"
