@@ -74,6 +74,7 @@ public class gameFragment extends Fragment implements RuleAdapter.OnItemClicked 
         rules.add(new Rule("Цель игры", R.drawable.ic_crown_2));
         rules.add(new Rule("События", R.drawable.ic_note));
         rules.add(new Rule("Необязательные расходы", R.drawable.ic_wallet));
+        rules.add(new Rule("Счастье",R.drawable.ic_emoji_happy));
 
 
         return result;
