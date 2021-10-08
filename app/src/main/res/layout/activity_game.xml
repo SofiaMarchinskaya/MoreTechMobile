@@ -8,6 +8,7 @@
     tools:context=".Homepage">
 
     <ImageView
+        android:id="@+id/home"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/ic_home"
@@ -19,6 +20,7 @@
     </ImageView>
 
     <ImageView
+        android:id="@+id/clock"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/ic_clock"
@@ -41,6 +43,21 @@
         >
 
     </TextView>
+    <LinearLayout
+        android:id="@+id/dots_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/top_text"
+        app:layout_constraintLeft_toLeftOf="@id/home"
+        app:layout_constraintRight_toRightOf="@id/clock"
+        android:layout_marginTop="5dp"
+
+
+        >
+
+
+    </LinearLayout>
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigationView"
         android:layout_width="match_parent"
