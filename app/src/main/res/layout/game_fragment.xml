@@ -124,7 +124,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:background="@drawable/white_to_to"
+        android:background="@drawable/ic_white_to_top"
         app:layout_constraintBottom_toTopOf="@id/playButton"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
