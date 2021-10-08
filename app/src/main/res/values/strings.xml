@@ -33,5 +33,6 @@
     <string name="notrect">Необязательные расходы</string>
     <string name="happy">Счастье</string>
     <string name="play">Играть</string>
+    <string name="game_rules">ПРАВИЛА ИГРЫ</string>
 
 </resources>
