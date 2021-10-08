@@ -4,11 +4,13 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/2/MoreTechMobile/app/src/main/res/drawable-v24/rounded_edittext_active.xml" value="0.3398148148148148" />
+        <entry key="..\:/2/MoreTechMobile/app/src/main/res/drawable/ic_white_to_top.xml" value="0.27291666666666664" />
         <entry key="..\:/2/MoreTechMobile/app/src/main/res/drawable/rounded_button_blue.xml" value="0.22135416666666666" />
         <entry key="..\:/2/MoreTechMobile/app/src/main/res/drawable/rounded_button_blue_active.xml" value="0.22135416666666666" />
         <entry key="..\:/2/MoreTechMobile/app/src/main/res/drawable/rounded_button_grey.xml" value="0.22135416666666666" />
         <entry key="..\:/2/MoreTechMobile/app/src/main/res/drawable/rounded_edittext_active.xml" value="0.3398148148148148" />
         <entry key="..\:/2/MoreTechMobile/app/src/main/res/drawable/selector.xml" value="0.22135416666666666" />
+        <entry key="..\:/2/MoreTechMobile/app/src/main/res/drawable/states_button.xml" value="0.28541666666666665" />
         <entry key="..\:/2/MoreTechMobile/app/src/main/res/drawable/white_to_to.xml" value="0.36153846153846153" />
         <entry key="..\:/2/MoreTechMobile/app/src/main/res/layout/activity_come_in.xml" value="0.33" />
         <entry key="..\:/2/MoreTechMobile/app/src/main/res/layout/activity_first_register.xml" value="0.17603850050658562" />
@@ -16,6 +18,7 @@
         <entry key="..\:/2/MoreTechMobile/app/src/main/res/layout/activity_register.xml" value="0.1" />
         <entry key="..\:/2/MoreTechMobile/app/src/main/res/layout/activity_rules.xml" value="0.26927083333333335" />
         <entry key="..\:/2/MoreTechMobile/app/src/main/res/layout/game_fragment.xml" value="0.33" />
+        <entry key="..\:/2/MoreTechMobile/app/src/main/res/layout/rule_item.xml" value="0.26927083333333335" />
         <entry key="..\:/2/MoreTechMobile/app/src/main/res/menu/bottom_nav_menu.xml" value="0.20520833333333333" />
         <entry key="..\:/AndroidProg/MoreTechMobile/app/src/main/res/drawable/ic_logo.xml" value="0.1962962962962963" />
         <entry key="..\:/AndroidProg/MoreTechMobile/app/src/main/res/layout/activity_homepage.xml" value="0.1793478260869565" />
