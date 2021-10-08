@@ -33,6 +33,7 @@ public class RegisterActivity extends AppCompatActivity implements RegisterPrese
         passwordEditText=findViewById(R.id.password_edit);
         register = findViewById(R.id.reg_button);
         nickEditText = findViewById(R.id.nick_edit);
+        presenter = new RegisterPresenter(this);
         backButton.setOnClickListener(view -> {
             Intent intent = new Intent(RegisterActivity.this, FirstRegisterActivity.class);
             startActivity(intent);
@@ -58,7 +59,9 @@ public class RegisterActivity extends AppCompatActivity implements RegisterPrese
 
     @Override
     public void onSuccess() {
-
+        Intent intent = new Intent(RegisterActivity.this, Homepage.class);
+        startActivity(intent);
+        finish();
     }
 
     @Override

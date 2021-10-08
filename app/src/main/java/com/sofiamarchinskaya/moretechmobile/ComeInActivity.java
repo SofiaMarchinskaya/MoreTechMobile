@@ -16,6 +16,7 @@ import android.widget.TextView;
 public class ComeInActivity extends AppCompatActivity implements ComeInPresenter.ViewComeIn {
     private View backButton;
     private TextView bottomText;
+    private TextView error;
     private EditText email;
     private EditText password;
     private Button auth;
@@ -31,6 +32,7 @@ public class ComeInActivity extends AppCompatActivity implements ComeInPresenter
         email = findViewById(R.id.mail_edit);
         password = findViewById(R.id.password_edit);
         auth = findViewById(R.id.auth_button);
+        error = findViewById(R.id.error);
         backButton.setOnClickListener(view -> {
             Intent intent = new Intent(ComeInActivity.this, FirstRegisterActivity.class);
             startActivity(intent);
@@ -52,11 +54,16 @@ public class ComeInActivity extends AppCompatActivity implements ComeInPresenter
 
     @Override
     public void onSuccess() {
-
+        Intent intent = new Intent(ComeInActivity.this, Homepage.class);
+        startActivity(intent);
+        finish();
     }
 
     @Override
     public void onFailed() {
-
+        //TODO error.setVisibility(View.VISIBLE);
+        Intent intent = new Intent(ComeInActivity.this, Homepage.class);
+        startActivity(intent);
+        finish();
     }
 }
