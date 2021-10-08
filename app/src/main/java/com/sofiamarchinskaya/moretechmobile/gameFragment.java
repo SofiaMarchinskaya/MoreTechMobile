@@ -1,9 +1,11 @@
 package com.sofiamarchinskaya.moretechmobile;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.provider.SyncStateContract;
 import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.style.ForegroundColorSpan;
@@ -21,6 +23,7 @@ import java.util.ArrayList;
 
 public class gameFragment extends Fragment implements RuleAdapter.OnItemClicked {
     private TextView showAllText;
+    private Button gameButton;
     ArrayList<Rule> rules = new ArrayList<Rule>();
 
     @Override
@@ -83,6 +86,14 @@ public class gameFragment extends Fragment implements RuleAdapter.OnItemClicked 
         rules.add(new Rule("Необязательные расходы", R.drawable.ic_wallet));
         rules.add(new Rule("Счастье",R.drawable.ic_emoji_happy));
 
+        gameButton = result.findViewById(R.id.playButton);
+        gameButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(),GameActivity.class);
+                startActivity(intent);
+            }
+        });
 
         return result;
     }
