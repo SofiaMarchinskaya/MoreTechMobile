@@ -36,10 +36,9 @@
                 android:layout_height="38dp"
                 style="@style/grey_rounded_button_style"
                 android:text="@string/novichek"
-                android:paddingTop="10dp"
-                android:paddingBottom="10dp"
-                android:paddingRight="20dp"
-                android:paddingLeft="20dp"
+
+                android:paddingRight="25dp"
+                android:paddingLeft="25dp"
                 android:layout_marginLeft="24dp"
                 android:layout_marginRight="10dp"
                 >
@@ -50,10 +49,9 @@
                 android:layout_height="38dp"
                 style="@style/grey_rounded_button_style"
                 android:text="@string/prodvinutiy"
-                android:paddingTop="10dp"
-                android:paddingBottom="10dp"
-                android:paddingRight="20dp"
-                android:paddingLeft="20dp"
+
+                android:paddingRight="25dp"
+                android:paddingLeft="25dp"
                 android:layout_marginRight="10dp"
 
                 >
@@ -64,11 +62,10 @@
                 android:layout_height="38dp"
                 style="@style/grey_rounded_button_style"
                 android:text="@string/professional"
-                android:paddingTop="10dp"
-                android:paddingBottom="10dp"
+
                 android:layout_marginRight="10dp"
-                android:paddingRight="20dp"
-                android:paddingLeft="20dp"
+                android:paddingRight="25dp"
+                android:paddingLeft="25dp"
 
                 >
             </Button>
