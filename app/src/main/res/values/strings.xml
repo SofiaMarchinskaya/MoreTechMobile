@@ -36,5 +36,6 @@
     <string name="game_rules">ПРАВИЛА ИГРЫ</string>
     <string name="view_all">Смотреть все</string>
     <string name="invested">Вложено</string>
+    <string name="budget">Бюджет</string>
 
 </resources>

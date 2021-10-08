@@ -18,6 +18,7 @@ public class GameActivity extends AppCompatActivity {
     private List<View> topDots;
     private View dot;
     private LinearLayout dotsLayout;
+    private TextView investedText;
     int wrapContent = LinearLayout.LayoutParams.WRAP_CONTENT;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +28,8 @@ public class GameActivity extends AppCompatActivity {
         topTextView = findViewById(R.id.top_text);
         topTextView.setText("Шаг  "+preferences.getString(Constant.YEAR,"1")+" из 10");
         dotsLayout = findViewById(R.id.dots_layout);
+        investedText = findViewById(R.id.invested_money);
+        investedText.setText(preferences.getString(Constant.INVEST_BANK,"0"));
         topDots = new ArrayList<>();
         int dip = 9;
         int margin = 6;
