@@ -35,5 +35,6 @@
     <string name="play">Играть</string>
     <string name="game_rules">ПРАВИЛА ИГРЫ</string>
     <string name="view_all">Смотреть все</string>
+    <string name="invested">Вложено</string>
 
 </resources>

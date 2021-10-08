@@ -51,13 +51,37 @@
         app:layout_constraintTop_toBottomOf="@id/top_text"
         app:layout_constraintLeft_toLeftOf="@id/home"
         app:layout_constraintRight_toRightOf="@id/clock"
-        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
 
 
         >
 
 
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/invested_money"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/bold_num"
+        app:layout_constraintTop_toTopOf="@id/dots_layout"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginLeft="28dp"
+        >
+    </TextView>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat_medium"
+        android:textSize="12sp"
+        android:textColor="#99ABC6"
+        app:layout_constraintTop_toTopOf="@id/invested_money"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginLeft="28dp"
+        android:text="@string/invested"
+        >
+
+    </TextView>
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigationView"
         android:layout_width="match_parent"
