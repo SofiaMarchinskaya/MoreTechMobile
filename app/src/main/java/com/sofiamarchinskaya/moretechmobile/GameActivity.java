@@ -15,6 +15,6 @@ public class GameActivity extends AppCompatActivity {
         setContentView(R.layout.activity_game);
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
         topTextView = findViewById(R.id.top_text);
-        topTextView.setText(preferences.getString(Constant.YEAR,"1"));
+        topTextView.setText("Шаг "+preferences.getString(Constant.YEAR,"1")+"из 10");
     }
 }
