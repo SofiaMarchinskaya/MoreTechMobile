@@ -9,24 +9,36 @@ import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.style.ForegroundColorSpan;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
-public class ComeInActivity extends AppCompatActivity {
+public class ComeInActivity extends AppCompatActivity implements ComeInPresenter.ViewComeIn {
     private View backButton;
     private TextView bottomText;
+    private EditText email;
+    private EditText password;
+    private Button auth;
+    private ComeInPresenter presenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_come_in);
+        presenter = new ComeInPresenter(this);
         backButton = findViewById(R.id.back_button);
         bottomText = findViewById(R.id.bottom_text);
+        email = findViewById(R.id.mail_edit);
+        password = findViewById(R.id.password_edit);
+        auth = findViewById(R.id.auth_button);
         backButton.setOnClickListener(view -> {
             Intent intent = new Intent(ComeInActivity.this, FirstRegisterActivity.class);
             startActivity(intent);
             finish();
         });
-
+        auth.setOnClickListener(v -> {
+            presenter.authorize(email.getText().toString(), password.getText().toString());
+        });
         bottomText.setOnClickListener(v -> {
             Intent intent = new Intent(ComeInActivity.this, RegisterActivity.class);
             startActivity(intent);
@@ -36,5 +48,15 @@ public class ComeInActivity extends AppCompatActivity {
         span.setSpan(new ForegroundColorSpan(Color.parseColor("#005EFF")), 14, 31,
                 Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
         bottomText.setText(span);
+    }
+
+    @Override
+    public void onSuccess() {
+
+    }
+
+    @Override
+    public void onFailed() {
+
     }
 }

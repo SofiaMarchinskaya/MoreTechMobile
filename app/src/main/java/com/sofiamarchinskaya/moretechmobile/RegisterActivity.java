@@ -9,14 +9,18 @@ import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.style.ForegroundColorSpan;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-public class RegisterActivity extends AppCompatActivity {
+public class RegisterActivity extends AppCompatActivity implements RegisterPresenter.ViewRegister{
     private View backButton;
     private TextView bottomText;
     private EditText mailEditText;
     private EditText passwordEditText;
+    private EditText nickEditText;
+    private Button register;
+    private RegisterPresenter presenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,13 +31,17 @@ public class RegisterActivity extends AppCompatActivity {
         bottomText = findViewById(R.id.bottom_text);
         mailEditText = findViewById(R.id.mail_edit);
         passwordEditText=findViewById(R.id.password_edit);
-
+        register = findViewById(R.id.reg_button);
+        nickEditText = findViewById(R.id.nick_edit);
         backButton.setOnClickListener(view -> {
             Intent intent = new Intent(RegisterActivity.this, FirstRegisterActivity.class);
             startActivity(intent);
             finish();
         });
-
+        register.setOnClickListener(v -> {
+            presenter.register(mailEditText.getText().toString(),
+                    nickEditText.getText().toString(), passwordEditText.getText().toString());
+        });
         bottomText.setOnClickListener(v -> {
             Intent intent = new Intent(RegisterActivity.this, ComeInActivity.class);
             startActivity(intent);
@@ -45,6 +53,16 @@ public class RegisterActivity extends AppCompatActivity {
                 Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
         bottomText.setText(span);
 
+
+    }
+
+    @Override
+    public void onSuccess() {
+
+    }
+
+    @Override
+    public void onFailed() {
 
     }
 }
