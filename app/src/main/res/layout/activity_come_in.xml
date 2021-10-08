@@ -103,7 +103,7 @@
     </EditText>
 
     <Button
-        android:id="@+id/reg_button"
+        android:id="@+id/auth_button"
         style="@style/reg_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
