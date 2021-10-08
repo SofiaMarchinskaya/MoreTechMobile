@@ -14,7 +14,6 @@ public class RulesActivity extends AppCompatActivity implements RuleAdapter.OnIt
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_rules);
         // начальная инициализация списка
         setInitialData();
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.list);
