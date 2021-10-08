@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class GameActivity extends AppCompatActivity {
@@ -24,9 +25,14 @@ public class GameActivity extends AppCompatActivity {
         topTextView = findViewById(R.id.top_text);
         topTextView.setText("Шаг  "+preferences.getString(Constant.YEAR,"1")+" из 10");
         dotsLayout = findViewById(R.id.dots_layout);
+        topDots = new ArrayList<>();
+
         for(int i = 0; i<10; i++){
+
             dot=new View(this);
             dot.setBackgroundResource(R.drawable.ic_circle);
+            dot.getLayoutParams().height=9;
+            dot.getLayoutParams().width=9;
             topDots.add(dot);
             dotsLayout.addView(dot);
         }
