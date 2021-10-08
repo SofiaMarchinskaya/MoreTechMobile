@@ -118,8 +118,6 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="1135dp"
-        android:clipToOutline="true"
         android:background="@drawable/white_to_to"
         app:layout_constraintBottom_toTopOf="@id/playButton"
         app:layout_constraintLeft_toLeftOf="parent"
