@@ -1,7 +1,9 @@
 package com.sofiamarchinskaya.moretechmobile;
 
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.style.ForegroundColorSpan;
@@ -25,6 +27,7 @@ public class gameFragment extends Fragment implements RuleAdapter.OnItemClicked 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View result = inflater.inflate(R.layout.game_fragment, container, false);
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getContext());
         Button nov = result.findViewById(R.id.novichek);
         Button prod = result.findViewById(R.id.prodvinutiy);
         Button professional = result.findViewById(R.id.professional);
@@ -34,6 +37,7 @@ public class gameFragment extends Fragment implements RuleAdapter.OnItemClicked 
         prod.setTextColor(ContextCompat.getColor(getContext(), R.color.greyText));
         professional.setBackgroundResource(R.drawable.rounded_button_grey);
         professional.setTextColor(ContextCompat.getColor(getContext(), R.color.greyText));
+        preferences.edit().putInt(Constant.LVL, Constant.LVL_NOVICHEK).apply();
         nov.setOnClickListener(v -> {
             nov.setBackgroundResource(R.drawable.rounded_button_blue);
             nov.setTextColor(ContextCompat.getColor(getContext(), R.color.white));
@@ -41,6 +45,7 @@ public class gameFragment extends Fragment implements RuleAdapter.OnItemClicked 
             prod.setTextColor(ContextCompat.getColor(getContext(), R.color.greyText));
             professional.setBackgroundResource(R.drawable.rounded_button_grey);
             professional.setTextColor(ContextCompat.getColor(getContext(), R.color.greyText));
+            preferences.edit().putInt(Constant.LVL, Constant.LVL_NOVICHEK).apply();
         });
         prod.setOnClickListener(v -> {
             nov.setBackgroundResource(R.drawable.rounded_button_grey);
@@ -49,6 +54,7 @@ public class gameFragment extends Fragment implements RuleAdapter.OnItemClicked 
             prod.setTextColor(ContextCompat.getColor(getContext(), R.color.white));
             professional.setBackgroundResource(R.drawable.rounded_button_grey);
             professional.setTextColor(ContextCompat.getColor(getContext(), R.color.greyText));
+            preferences.edit().putInt(Constant.LVL, Constant.LVL_PRODVIN).apply();
         });
         professional.setOnClickListener(v -> {
             nov.setBackgroundResource(R.drawable.rounded_button_grey);
@@ -57,6 +63,7 @@ public class gameFragment extends Fragment implements RuleAdapter.OnItemClicked 
             prod.setTextColor(ContextCompat.getColor(getContext(), R.color.greyText));
             professional.setBackgroundResource(R.drawable.rounded_button_blue);
             professional.setTextColor(ContextCompat.getColor(getContext(), R.color.white));
+            preferences.edit().putInt(Constant.LVL, Constant.LVL_PROFFESIONAL).apply();
         });
         showAllText = result.findViewById(R.id.view_rules);
         Spannable span = new SpannableString(getString(R.string.view_all));
