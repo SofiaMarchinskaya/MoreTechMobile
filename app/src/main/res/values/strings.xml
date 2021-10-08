@@ -26,7 +26,12 @@
     <string name="novichek">Новичок</string>
     <string name="prodvinutiy">Продвинутый</string>
     <string name="professional">Профессонал</string>
-
-
+    <string name="rules">Правила игры</string>
+    <string name="watch_all">Смотреть все</string>
+    <string name="goal">Цель игры</string>
+    <string name="event">События</string>
+    <string name="notrect">Необязательные расходы</string>
+    <string name="happy">Счастье</string>
+    <string name="play">Играть</string>
 
 </resources>
