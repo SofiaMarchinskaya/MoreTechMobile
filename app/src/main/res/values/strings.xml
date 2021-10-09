@@ -41,5 +41,7 @@
     <string name="vklady">Вклады</string>
     <string name="oblig">Облигации</string>
     <string name="kopilka">Инвест копилка</string>
+    <string name="all">Вложить все</string>
+    <string name="set">Вложить</string>
 
 </resources>
