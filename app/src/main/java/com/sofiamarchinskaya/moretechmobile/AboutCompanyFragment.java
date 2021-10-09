@@ -33,10 +33,17 @@ public class AboutCompanyFragment extends Fragment {
         ((ImageView)result.findViewById(R.id.company_image)).setImageResource(img_id);
         ((TextView)result.findViewById(R.id.about_company)).setText(aboutCompany);
         LinearLayout linearLayout = result.findViewById(R.id.linear_companies);
+        LinearLayout.LayoutParams linLayoutParam = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+        final View view = getLayoutInflater().inflate(R.layout.company_text_image, null);
         ImageView img;
+        TextView textView;
         for (int i = 0; i <relativeCompanies.size(); i++) {
             img = new ImageView(getContext());
             img.setBackgroundResource(relativeCompanies.get(i).getImageResources());
+            textView = new TextView(getContext());
+            textView.setText(relativeCompanies.get(i).getTitle());
+            linearLayout.addView(img,linLayoutParam);
+            linearLayout.addView(textView,linLayoutParam);
 
         }
         return result;
