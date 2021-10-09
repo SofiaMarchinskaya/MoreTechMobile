@@ -31,11 +31,11 @@
     <string name="goal">Цель игры</string>
     <string name="event">События</string>
     <string name="notrect">Необязательные расходы</string>
-    <string name="happy">Счастье</string>
     <string name="play">Играть</string>
     <string name="game_rules">ПРАВИЛА ИГРЫ</string>
     <string name="view_all">Смотреть все</string>
     <string name="invested">Вложено</string>
     <string name="budget">Бюджет</string>
+    <string name="happy">Счастье</string>
 
 </resources>

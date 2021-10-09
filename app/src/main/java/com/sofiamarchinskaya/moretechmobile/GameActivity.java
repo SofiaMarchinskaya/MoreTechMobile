@@ -19,6 +19,8 @@ public class GameActivity extends AppCompatActivity {
     private View dot;
     private LinearLayout dotsLayout;
     private TextView investedText;
+    private TextView budgetText;
+    private TextView happyText;
     int wrapContent = LinearLayout.LayoutParams.WRAP_CONTENT;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +32,12 @@ public class GameActivity extends AppCompatActivity {
         dotsLayout = findViewById(R.id.dots_layout);
         investedText = findViewById(R.id.invested_money);
         investedText.setText(preferences.getInt(Constant.DEPOSIT,0)+"");
+
+        budgetText = findViewById(R.id.budget);
+        happyText = findViewById(R.id.percent_happy);
+
+        budgetText.setText(preferences.getInt(Constant.TOTAL_MONEY,Constant.START_MONEY)+"");
+        happyText.setText(preferences.getInt(Constant.HAPPY,Constant.START_HAPPY)+"");
         topDots = new ArrayList<>();
         int dip = 9;
         int margin = 6;
