@@ -161,7 +161,9 @@ public class BudgetFragment extends Fragment {
                 finalButton.setVisibility(View.VISIBLE);
             }
         });
-
+        finalButton.setOnClickListener(v -> {
+            ((GameActivity) getActivity()).switchBottomNavMenu();
+        });
 
         return result;
     }

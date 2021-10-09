@@ -222,21 +222,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:menu="@menu/bottom_nav_menu_game"/>
 
-        <com.google.android.material.bottomnavigation.BottomNavigationView
-            android:id="@+id/bottomNavigationView_stock"
-            android:layout_width="match_parent"
-            android:layout_height="75dp"
-            android:background="@color/white"
-            android:theme="@style/Widget.BottomNavigationView"
-            app:itemIconTint="@drawable/selector"
-            app:itemTextColor="@drawable/selector"
-            app:labelVisibilityMode="labeled"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:menu="@menu/bottom_nav_menu_stock_market"/>
-
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

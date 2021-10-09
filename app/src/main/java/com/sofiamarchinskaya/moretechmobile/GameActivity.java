@@ -35,6 +35,7 @@ public class GameActivity extends AppCompatActivity implements GamePresenter.Vie
     private ViewPager2 pager;
     private TabLayoutMediator tabLayoutMediator;
     private BottomSheetBehavior bottomSheetBehaviour;
+    private BottomNavigationView navigation;
     private View close;
     int wrapContent = LinearLayout.LayoutParams.WRAP_CONTENT;
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
@@ -124,7 +125,7 @@ public class GameActivity extends AppCompatActivity implements GamePresenter.Vie
         close.setOnClickListener(v -> {
             close();
         });
-        BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.bottomNavigationView);
+        navigation = (BottomNavigationView) findViewById(R.id.bottomNavigationView);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
         ft.replace(R.id.investFragment, new BudgetFragment());
@@ -161,7 +162,10 @@ public class GameActivity extends AppCompatActivity implements GamePresenter.Vie
 
     }
     public void switchBottomNavMenu(){
-        BottomNavigationView bottomNavigationView = (BottomNavigationView)
-                findViewById(R.id.bottomNavigationView_stock);
+        navigation.getMenu().clear();
+        navigation.inflateMenu(R.menu.bottom_nav_menu_stock_market);
+//        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+//        ft.replace(R.id.investFragment, new BudgetFragment());
+//        ft.commit();
     }
 }
