@@ -18,12 +18,10 @@ import java.util.Set;
 public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder>{
 
     private final LayoutInflater inflater;
-    private final Set<News> currentNews;
-    private Context context;
 
 
-    NewsAdapter(Context context, List<News> news, Set<News> currentNews) {
-        this.currentNews = currentNews;
+    NewsAdapter(Context context) {
+
         this.inflater = LayoutInflater.from(context);
     }
     @Override
@@ -36,11 +34,18 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder>{
 
     @Override
     public void onBindViewHolder(NewsAdapter.ViewHolder holder, @SuppressLint("RecyclerView") int position) {
+        News [] news = NewsUtils.getCurrentNews().toArray(new News[0]);
+        holder.news_text.setText(news[position].getText());
+        if (news[position].getType()==Constant.BAD_NEWS){
+            holder.news_text.setCompoundDrawablesWithIntrinsicBounds(R.drawable.red, 0, 0, 0);
+        }else {
+            holder.news_text.setCompoundDrawablesWithIntrinsicBounds(R.drawable.blue, 0, 0, 0);
+        }
     }
 
     @Override
     public int getItemCount() {
-        return currentNews.size();
+        return NewsUtils.getCurrentNews().size();
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {

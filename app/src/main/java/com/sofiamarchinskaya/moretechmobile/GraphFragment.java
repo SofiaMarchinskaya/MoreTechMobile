@@ -73,9 +73,6 @@ public class GraphFragment extends Fragment {
             int total = preferences.getInt(Constant.TOTAL_MONEY, Constant.START_MONEY);
             preferences.edit().putInt(Constant.TOTAL_MONEY, 0)
                     .putInt(Constant.DEPOSIT, total).apply();
-            InvestFragment.gamePresenter.getCompanyList().get(preferences.getInt(Constant.LAST_INDEX,
-                    0)).setDeposit(InvestFragment.gamePresenter.getCompanyList().get(preferences.getInt(Constant.LAST_INDEX,
-                    0)).getDeposit()+total);
             InvestFragment.adapter.notifyDataSetChanged();
             ((GameActivity)getActivity()).close();
         });
@@ -88,9 +85,6 @@ public class GraphFragment extends Fragment {
                 preferences.edit().putInt(Constant.TOTAL_MONEY, total - minus)
                         .putInt(Constant.DEPOSIT, preferences.getInt(Constant.DEPOSIT, 0) + minus)
                         .apply();
-                InvestFragment.gamePresenter.getCompanyList().get(preferences.getInt(Constant.LAST_INDEX,
-                        0)).setDeposit(InvestFragment.gamePresenter.getCompanyList().get(preferences.getInt(Constant.LAST_INDEX,
-                        0)).getDeposit()+minus);
                 InvestFragment.adapter.notifyDataSetChanged();
                 ((GameActivity)getActivity()).close();
             }

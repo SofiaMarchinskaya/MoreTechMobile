@@ -28,11 +28,6 @@ public class Company {
         preferences = PreferenceManager.getDefaultSharedPreferences(context);
     }
 
-    public void setDeposit(int deposit) {
-        preferences.edit().putInt(title+"deposit", deposit).apply();
-        this.deposit = deposit;
-    }
-
     public String getDescription() {
         return description;
     }

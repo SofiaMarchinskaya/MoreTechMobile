@@ -36,7 +36,7 @@ public class GamePresenter {
                     "Многомиллиардный бизнес включает в себя торговую площадку Alibaba.com и два " +
                     "шопинг-ресурса: Taobao и Tmall, не считая последних приобретений. Taobao, " +
                     "площадка для мелких торговцев, которые платят за рекламу и другие возможности " +
-                    "сайта.", preferences.getInt("Alibaba"+"deposit", 0), R.drawable.aibaba,
+                    "сайта.", 22650, R.drawable.aibaba,
                     companies, context));
             companyList.get(i).setUpPrice(
                     NewsUtils.isGoodForThisCompanyYear(companyList.get(i).getTitle())

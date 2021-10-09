@@ -47,5 +47,7 @@
     <string name="stock_market">Биржа</string>
     <string name="news">Новости</string>
     <string name="dividendi">Дивиденды</string>
+    <string name="learn">Обучение</string>
+    <string name="stah">Страховка</string>
 
 </resources>
