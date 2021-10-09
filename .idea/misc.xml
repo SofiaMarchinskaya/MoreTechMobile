@@ -6,7 +6,10 @@
         <entry key="..\:/AndroidProg/MoreTechMobile/app/src/main/res/drawable/ic_arrow_right.xml" value="0.1925925925925926" />
         <entry key="..\:/AndroidProg/MoreTechMobile/app/src/main/res/drawable/ic_emoji_happy.xml" value="0.1925925925925926" />
         <entry key="..\:/AndroidProg/MoreTechMobile/app/src/main/res/drawable/ic_logo.xml" value="0.1962962962962963" />
+        <entry key="..\:/AndroidProg/MoreTechMobile/app/src/main/res/drawable/ic_tick_square.xml" value="0.1824074074074074" />
         <entry key="..\:/AndroidProg/MoreTechMobile/app/src/main/res/drawable/ic_vector.xml" value="0.1925925925925926" />
+        <entry key="..\:/AndroidProg/MoreTechMobile/app/src/main/res/drawable/rounded_box.xml" value="0.1824074074074074" />
+        <entry key="..\:/AndroidProg/MoreTechMobile/app/src/main/res/drawable/rounded_box_green.xml" value="0.1824074074074074" />
         <entry key="..\:/AndroidProg/MoreTechMobile/app/src/main/res/drawable/rounded_button_blue.xml" value="0.1925925925925926" />
         <entry key="..\:/AndroidProg/MoreTechMobile/app/src/main/res/drawable/rounded_button_grey.xml" value="0.1925925925925926" />
         <entry key="..\:/AndroidProg/MoreTechMobile/app/src/main/res/drawable/rounded_button_grey_border.xml" value="0.18796296296296297" />
@@ -20,7 +23,7 @@
         <entry key="..\:/AndroidProg/MoreTechMobile/app/src/main/res/layout/activity_register.xml" value="0.1793478260869565" />
         <entry key="..\:/AndroidProg/MoreTechMobile/app/src/main/res/layout/activity_rules.xml" value="0.17255434782608695" />
         <entry key="..\:/AndroidProg/MoreTechMobile/app/src/main/res/layout/company_text_image.xml" value="0.15715579710144928" />
-        <entry key="..\:/AndroidProg/MoreTechMobile/app/src/main/res/layout/fragment_budget.xml" value="0.15715579710144928" />
+        <entry key="..\:/AndroidProg/MoreTechMobile/app/src/main/res/layout/fragment_budget.xml" value="0.264" />
         <entry key="..\:/AndroidProg/MoreTechMobile/app/src/main/res/layout/game_fragment.xml" value="0.264" />
         <entry key="..\:/AndroidProg/MoreTechMobile/app/src/main/res/layout/invest_fragment.xml" value="0.16394927536231885" />
         <entry key="..\:/AndroidProg/MoreTechMobile/app/src/main/res/layout/invest_layout.xml" value="0.16621376811594202" />

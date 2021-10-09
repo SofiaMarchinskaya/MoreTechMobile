@@ -33,7 +33,7 @@ private Button finalButton;
                              Bundle savedInstanceState) {
         View result = inflater.inflate(R.layout.fragment_budget, container, false);
         cards = new ArrayList<>();
-        cards.add(new BudgetCard(R.drawable.ic_wallet,"Минимальные траты" +
+        cards.add(new BudgetCard(R.drawable.ic_wallet,"Минимальные траты " +
                 "на жизнь за год",R.string.min_trati,Constant.PRICE_FOR_YEAR,16));
         cards.add(new BudgetCard(R.drawable.ic_car,"Путешествие " +
                 "со всей семьёй",R.string.travel,21550,5));
@@ -41,9 +41,9 @@ private Button finalButton;
                 "на работе",R.string.gifts,21550,5));
         cards.add(new BudgetCard(R.drawable.ic_cake,"Купить новый айфон для дочери"
                 ,R.string.iphone,21550,5));
-        cards.add(new BudgetCard(R.drawable.ic_ticket_2,"Развлекательная" +
+        cards.add(new BudgetCard(R.drawable.ic_ticket_2,"Развлекательная " +
                 "программа",R.string.entertainment,21550,5));
-        cards.add(new BudgetCard(R.drawable.ic_tick_square,"Основные решения" +
+        cards.add(new BudgetCard(R.drawable.ic_tick_square,"Основные решения " +
                 "приняты",R.string.final_card,Constant.PRICE_FOR_YEAR,16));
         counter=0;
 
@@ -56,7 +56,7 @@ private Button finalButton;
     img = result.findViewById(R.id.image_on_card);
     title= result.findViewById(R.id.title_on_card);
     description = result.findViewById(R.id.subtitle_on_card);
-    abortButton.setVisibility(View.INVISIBLE);
+    abortButton.setEnabled(false);
 
 //    img.setBackgroundResource(0);
       img.setBackgroundResource(cards.get(counter).getImage());
@@ -66,15 +66,14 @@ private Button finalButton;
     price.setText(cards.get(counter).getPrice()+"");
 
 
-    BudgetCard card;
     acceptButton.setOnClickListener(view -> {
         counter++;
-        abortButton.setVisibility(View.VISIBLE);
         img.setBackgroundResource(cards.get(counter).getImage());
         title.setText(cards.get(counter).getTitle());
         description.setText(cards.get(counter).getDescription());
         happyPercent.setText(cards.get(counter).getHappy_percent()+"");
         price.setText(cards.get(counter).getPrice()+"");
+        abortButton.setEnabled(true);
         if(counter==cards.size()-1 ){
             abortButton.setVisibility(View.INVISIBLE);
             acceptButton.setVisibility(View.INVISIBLE);

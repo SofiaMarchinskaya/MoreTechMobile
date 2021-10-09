@@ -10,6 +10,7 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+
         android:background="@color/white">
 
         <LinearLayout
@@ -18,9 +19,11 @@
             android:orientation="vertical">
 
             <androidx.cardview.widget.CardView
+                xmlns:app="http://schemas.android.com/apk/res-auto"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="24dp"
+                app:cardCornerRadius="8dp"
                 >
 
                 <androidx.constraintlayout.widget.ConstraintLayout
@@ -38,22 +41,25 @@
 
                     <TextView
                         android:id="@+id/title_on_card"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Test text"
                         android:fontFamily="@font/semibold"
                         android:textColor="@color/blueBlack"
                         android:textSize="22sp"
                         android:layout_marginTop="14dp"
+                        android:layout_marginHorizontal="32dp"
+                        android:gravity="center"
                         app:layout_constraintLeft_toLeftOf="parent"
                         app:layout_constraintRight_toRightOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/image_on_card"
                         />
                     <TextView
                         android:id="@+id/subtitle_on_card"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Test text"
+                        android:layout_marginHorizontal="32dp"
+                        android:gravity="center"
                         android:fontFamily="@font/regular"
                         android:textColor="@color/greyText"
                         android:textSize="14sp"
@@ -62,31 +68,29 @@
                         app:layout_constraintRight_toRightOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/title_on_card"
                         />
+
                     <TextView
                         android:id="@+id/price_on_card"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="17sp"
-                        android:background="@drawable/rounded_button_grey"
-                        android:paddingVertical="3dp"
-                        android:paddingHorizontal="12dp"
-                        android:textColor="#99ABC6"
-                        android:layout_marginTop="8dp"
+                        android:layout_marginTop="24dp"
+                        android:background="@drawable/rounded_box_blue"
                         android:fontFamily="@font/semibold"
+                        android:padding="12dp"
+                        android:textColor="#99ABC6"
+                        android:textSize="17sp"
                         app:layout_constraintLeft_toLeftOf="parent"
                         app:layout_constraintRight_toLeftOf="@id/happy_on_card"
-                        app:layout_constraintTop_toBottomOf="@id/subtitle_on_card"
-                        />
+                        app:layout_constraintTop_toBottomOf="@id/subtitle_on_card" />
                     <TextView
                         android:id="@+id/happy_on_card"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="17sp"
-                        android:paddingVertical="3dp"
-                        android:layout_marginTop="8dp"
-                        android:paddingHorizontal="12dp"
+                        android:padding="12dp"
+                        android:layout_marginTop="24dp"
                         android:textColor="#99ABC6"
-                        android:background="@drawable/rounded_button_grey"
+                        android:background="@drawable/rounded_box_green"
                         android:fontFamily="@font/semibold"
                         app:layout_constraintLeft_toRightOf="@id/price_on_card"
                         app:layout_constraintRight_toRightOf="parent"
@@ -96,7 +100,7 @@
                         />
                     <View
                         xmlns:android="http://schemas.android.com/apk/res/android"
-                        android:layout_marginTop="8dp"
+                        android:layout_marginTop="24dp"
                         android:id="@+id/tick_square"
                         android:layout_width="28dp"
                         android:layout_height="28dp"
@@ -110,7 +114,7 @@
                         />
                     <View
                         xmlns:android="http://schemas.android.com/apk/res/android"
-                        android:layout_marginTop="8dp"
+                        android:layout_marginTop="24dp"
                         android:id="@+id/close_square"
                         android:layout_width="28dp"
                         android:layout_height="28dp"
@@ -125,9 +129,11 @@
 
                     <Button
                         android:id="@+id/finalButton"
+                        style="@style/reg_button"
                         android:layout_marginHorizontal="26dp"
+                        android:text = "Закончить ход"
                         android:layout_marginBottom="32dp"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintRight_toRightOf="parent"
