@@ -10,6 +10,8 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.sofiamarchinskaya.moretechmobile.models.Rule;
+
 import java.util.ArrayList;
 import java.util.List;
 
