@@ -160,4 +160,8 @@ public class GameActivity extends AppCompatActivity implements GamePresenter.Vie
     public void updateData() {
 
     }
+    public void switchBottomNavMenu(){
+        BottomNavigationView bottomNavigationView = (BottomNavigationView)
+                findViewById(R.id.bottomNavigationView_stock);
+    }
 }

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/stock_market"
+        android:title="@string/stock_market"
+        android:icon="@drawable/ic_dollar_square"/>
+    <item
+        android:id="@+id/news"
+        android:title="@string/news"
+        android:icon="@drawable/ic_document"/>
+    <item
+        android:id="@+id/dividenti"
+        android:title="@string/dividendi"
+        android:icon="@drawable/ic_refresh"/>
+
+</menu>
