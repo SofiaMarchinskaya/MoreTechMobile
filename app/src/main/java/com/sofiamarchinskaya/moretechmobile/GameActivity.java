@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.util.TypedValue;
 import android.view.View;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -12,6 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager2.widget.ViewPager2;
 
+import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
 import com.sofiamarchinskaya.moretechmobile.models.Company;
@@ -30,6 +32,8 @@ public class GameActivity extends AppCompatActivity implements GamePresenter.Vie
     private FragmentAdapter adapter;
     private ViewPager2 pager;
     private TabLayoutMediator tabLayoutMediator;
+    private BottomSheetBehavior bottomSheetBehaviour;
+    private View close;
     int wrapContent = LinearLayout.LayoutParams.WRAP_CONTENT;
 
     @Override
@@ -42,7 +46,7 @@ public class GameActivity extends AppCompatActivity implements GamePresenter.Vie
         dotsLayout = findViewById(R.id.dots_layout);
         investedText = findViewById(R.id.invested_money);
         investedText.setText(preferences.getInt(Constant.DEPOSIT, 0) + "");
-
+        close = findViewById(R.id.close);
         budgetText = findViewById(R.id.budget);
         happyText = findViewById(R.id.percent_happy);
 
@@ -70,15 +74,39 @@ public class GameActivity extends AppCompatActivity implements GamePresenter.Vie
         }
         pager = (ViewPager2) findViewById(R.id.pager);
         TabLayout tabLayout = findViewById(R.id.tab_layout);
+        String [] names = new String[]{"Годовые данные", "О компании"};
         tabLayoutMediator = new TabLayoutMediator(tabLayout, pager,
-                (tab, position) -> tab.setText("Страница " + (position + 1)));
-        adapter = new FragmentAdapter(this);
-        adapter.setData(InvestFragment.gamePresenter.getCompanyList().get(0), new int[]{123,123,
-                123,123,123,123,123,132});
-        pager.setAdapter(adapter);
-        tabLayoutMediator.attach();
-    }
+                (tab, position) -> {
+            tab.setText(names[position]);
 
+        });
+        bottomSheetBehaviour = BottomSheetBehavior.from(findViewById(R.id.bottom_sheet));
+        bottomSheetBehaviour.setState(BottomSheetBehavior.STATE_HIDDEN);
+        bottomSheetBehaviour.setBottomSheetCallback(new BottomSheetBehavior.BottomSheetCallback() {
+            @Override
+            public void onStateChanged(@NonNull View view, int i) {
+                if (i == BottomSheetBehavior.STATE_COLLAPSED){
+                    close();
+                }
+            }
+
+            @Override
+            public void onSlide(@NonNull View view, float v) {
+
+            }
+        });
+        close.setOnClickListener(v -> {
+            close();
+        });
+    }
+    public void close(){
+        bottomSheetBehaviour.setState(BottomSheetBehavior.STATE_HIDDEN);
+        InvestFragment.gamePresenter.closeBottomSheet();
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+        investedText.setText(preferences.getInt(Constant.DEPOSIT, 0) + "");
+        budgetText.setText(preferences.getInt(Constant.TOTAL_MONEY, Constant.START_MONEY) + "");
+        tabLayoutMediator.detach();
+    }
 
     @Override
     public void showBottomSheet(Company company, int[] dots) {
@@ -87,6 +115,7 @@ public class GameActivity extends AppCompatActivity implements GamePresenter.Vie
         adapter.setData(company, dots);
         pager.setAdapter(adapter);
         tabLayoutMediator.attach();
+        bottomSheetBehaviour.setState(BottomSheetBehavior.STATE_EXPANDED);
     }
 
     @Override

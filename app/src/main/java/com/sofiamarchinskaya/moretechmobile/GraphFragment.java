@@ -1,10 +1,14 @@
 package com.sofiamarchinskaya.moretechmobile;
 
+import android.content.SharedPreferences;
 import android.graphics.Paint;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -41,33 +45,59 @@ public class GraphFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_graph, container, false);
+        EditText editText = view.findViewById(R.id.edit);
         TextView title = view.findViewById(R.id.title);
         ImageView imageView = view.findViewById(R.id.image);
         TextView deposit = view.findViewById(R.id.deposit);
+        Button all = view.findViewById(R.id.all);
+        Button set = view.findViewById(R.id.set);
         title.setText(this.title);
-        deposit.setText(this.deposit+"");
+        deposit.setText(this.deposit+" ₽");
         imageView.setImageResource(imageRes);
         GraphView graph = view.findViewById(R.id.graph);
         LineGraphSeries<DataPoint> series = new LineGraphSeries<DataPoint>();
-        DateFormatSymbols myDateFormatSymbols = new DateFormatSymbols() {
-            @Override
-            public String[] getMonths() {
-                return new String[]{"", "Янв", "Фев", "Мар", "Апр", "Май", "Июн", "Июл", "Авг",
-                        "Сен", "Окт", "Ноя", "Дек"};
-            }
-        };
-        DateFormat dateFormat = new SimpleDateFormat("MMM.", myDateFormatSymbols);
-        graph.getGridLabelRenderer().setLabelFormatter(new DateAsXAxisLabelFormatter(getActivity(),
-                dateFormat));
+
         for (int i = 0; i < points.length; i++) {
-            series.appendData(new DataPoint(new Date(2021, i, 1), points[i]), false, points.length);
+            series.appendData(new DataPoint(i, points[i]), false, points.length);
         }
         Paint paint = new Paint();
-        paint.setColor(ContextCompat.getColor(getContext(), R.color.green));
+        paint.setColor(getResources().getColor(R.color.green));
         graph.setLayerPaint(paint);
+        graph.getGridLabelRenderer().setVerticalLabelsColor(getResources().getColor(R.color.white));
+        graph.getGridLabelRenderer().setHorizontalLabelsColor(getResources().getColor(R.color.white));
         graph.addSeries(series);
         graph.getGridLabelRenderer().setNumHorizontalLabels(points.length);
         graph.getGridLabelRenderer().setNumVerticalLabels(0);
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getContext());
+        all.setOnClickListener(v -> {
+            int total = preferences.getInt(Constant.TOTAL_MONEY, Constant.START_MONEY);
+            preferences.edit().putInt(Constant.TOTAL_MONEY, 0)
+                    .putInt(Constant.DEPOSIT, total).apply();
+            InvestFragment.gamePresenter.getCompanyList().get(preferences.getInt(Constant.LAST_INDEX,
+                    0)).setDeposit(InvestFragment.gamePresenter.getCompanyList().get(preferences.getInt(Constant.LAST_INDEX,
+                    0)).getDeposit()+total);
+            InvestFragment.adapter.notifyDataSetChanged();
+            ((GameActivity)getActivity()).close();
+        });
+        set.setOnClickListener(v -> {
+            int total = preferences.getInt(Constant.TOTAL_MONEY, Constant.START_MONEY);
+            if (editText.getText().toString().equals(""))
+                editText.setText("0");
+            int minus  = Integer.parseInt(editText.getText().toString());
+            if (minus>0&& total-minus>0) {
+                preferences.edit().putInt(Constant.TOTAL_MONEY, total - minus)
+                        .putInt(Constant.DEPOSIT, preferences.getInt(Constant.DEPOSIT, 0) + minus)
+                        .apply();
+                InvestFragment.gamePresenter.getCompanyList().get(preferences.getInt(Constant.LAST_INDEX,
+                        0)).setDeposit(InvestFragment.gamePresenter.getCompanyList().get(preferences.getInt(Constant.LAST_INDEX,
+                        0)).getDeposit()+minus);
+                InvestFragment.adapter.notifyDataSetChanged();
+                ((GameActivity)getActivity()).close();
+            }
+            else {
+                editText.setTextColor(getResources().getColor(R.color.red));
+            }
+        });
         return view;
     }
 }
