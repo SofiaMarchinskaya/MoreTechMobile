@@ -1,10 +1,5 @@
 package com.sofiamarchinskaya.moretechmobile;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.viewpager2.adapter.FragmentStateAdapter;
-import androidx.viewpager2.widget.ViewPager2;
-
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -12,6 +7,10 @@ import android.util.TypedValue;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.viewpager2.widget.ViewPager2;
 
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
@@ -28,49 +27,60 @@ public class GameActivity extends AppCompatActivity implements GamePresenter.Vie
     private TextView investedText;
     private TextView budgetText;
     private TextView happyText;
+    private FragmentAdapter adapter;
+    private ViewPager2 pager;
+    private TabLayoutMediator tabLayoutMediator;
     int wrapContent = LinearLayout.LayoutParams.WRAP_CONTENT;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
         topTextView = findViewById(R.id.top_text);
-        topTextView.setText("Шаг  "+preferences.getString(Constant.YEAR,"1")+" из 10");
+        topTextView.setText("Шаг  " + preferences.getString(Constant.YEAR, "1") + " из 10");
         dotsLayout = findViewById(R.id.dots_layout);
         investedText = findViewById(R.id.invested_money);
-        investedText.setText(preferences.getInt(Constant.DEPOSIT,0)+"");
+        investedText.setText(preferences.getInt(Constant.DEPOSIT, 0) + "");
 
         budgetText = findViewById(R.id.budget);
         happyText = findViewById(R.id.percent_happy);
 
-        budgetText.setText(preferences.getInt(Constant.TOTAL_MONEY,Constant.START_MONEY)+"");
-        happyText.setText(preferences.getInt(Constant.HAPPY,Constant.START_HAPPY)+"");
+        budgetText.setText(preferences.getInt(Constant.TOTAL_MONEY, Constant.START_MONEY) + "");
+        happyText.setText(preferences.getInt(Constant.HAPPY, Constant.START_HAPPY) + "");
         topDots = new ArrayList<>();
         int dip = 9;
         int margin = 6;
         //перевод в dp
-        float px = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dip,  getResources().getDisplayMetrics());
+        float px = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dip,
+                getResources().getDisplayMetrics());
         LinearLayout.LayoutParams lParams = new LinearLayout.LayoutParams(
-                (int)px, (int)px);
-        float m_px = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, margin,  getResources().getDisplayMetrics());
+                (int) px, (int) px);
+        float m_px = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, margin,
+                getResources().getDisplayMetrics());
 
-       for(int i = 0; i<10; i++){
+        for (int i = 0; i < 10; i++) {
 
-            dot=new View(this);
+            dot = new View(this);
             dot.setBackgroundResource(R.drawable.ic_circle);
-           lParams.setMargins(0,0,(int)m_px,0);
-          dot.setLayoutParams(lParams);
+            lParams.setMargins(0, 0, (int) m_px, 0);
+            dot.setLayoutParams(lParams);
             topDots.add(dot);
-            dotsLayout.addView(dot,lParams);
+            dotsLayout.addView(dot, lParams);
         }
-
+        pager = (ViewPager2) findViewById(R.id.pager);
+        TabLayout tabLayout = findViewById(R.id.tab_layout);
+        tabLayoutMediator = new TabLayoutMediator(tabLayout, pager,
+                (tab, position) -> tab.setText("Страница " + (position + 1)));
     }
-
 
 
     @Override
     public void showBottomSheet(Company company, int[] dots) {
-
+        adapter = new FragmentAdapter(this);
+        adapter.setData(company, dots);
+        pager.setAdapter(adapter);
+        tabLayoutMediator.attach();
     }
 
     @Override
