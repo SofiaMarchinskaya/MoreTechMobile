@@ -55,7 +55,11 @@ public class GameActivity extends AppCompatActivity implements GamePresenter.Vie
                     ft1.replace(R.id.investFragment,  new InvestFragment());
                     ft1.commit();
                     return true;
-
+                case R.id.news:
+                    FragmentTransaction ft2 = getSupportFragmentManager().beginTransaction();
+                    ft2.replace(R.id.news,  new NewsFragment());
+                    ft2.commit();
+                    return true;
             }
 
             return false;
