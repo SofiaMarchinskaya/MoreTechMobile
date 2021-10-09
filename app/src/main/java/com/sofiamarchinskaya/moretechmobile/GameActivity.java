@@ -29,7 +29,7 @@ public class GameActivity extends AppCompatActivity {
         topTextView.setText("Шаг  "+preferences.getString(Constant.YEAR,"1")+" из 10");
         dotsLayout = findViewById(R.id.dots_layout);
         investedText = findViewById(R.id.invested_money);
-        investedText.setText(preferences.getString(Constant.INVEST_BANK,"0"));
+        investedText.setText(preferences.getInt(Constant.DEPOSIT,0)+"");
         topDots = new ArrayList<>();
         int dip = 9;
         int margin = 6;
