@@ -22,7 +22,7 @@ app:layout_constraintTop_toTopOf="parent"
         android:id="@+id/stock"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        style="@style/grey_rounded_border_button_style"
+        style="@style/reg_button"
         android:text="@string/stock"
         android:textSize="14sp"
         android:fontFamily="@font/montserrat_medium"
@@ -31,7 +31,7 @@ app:layout_constraintTop_toTopOf="parent"
         android:layout_marginLeft="24dp"
         android:layout_marginRight="10dp"
         android:layout_marginBottom="30dp"
-        android:minHeight="28dp"
+        android:minHeight="34dp"
         >
 
     </Button>
@@ -47,7 +47,7 @@ app:layout_constraintTop_toTopOf="parent"
         android:paddingLeft="20dp"
         android:layout_marginRight="10dp"
         android:layout_marginBottom="30dp"
-        android:minHeight="28dp"
+        android:minHeight="34dp"
 
         >
 
@@ -60,7 +60,7 @@ app:layout_constraintTop_toTopOf="parent"
         android:text="@string/oblig"
         android:textSize="14sp"
         android:fontFamily="@font/montserrat_medium"
-        android:minHeight="28dp"
+        android:minHeight="34dp"
         android:layout_marginRight="10dp"
         android:paddingRight="20dp"
         android:paddingLeft="20dp"
@@ -79,7 +79,7 @@ app:layout_constraintTop_toTopOf="parent"
         android:paddingRight="20dp"
         android:paddingLeft="20dp"
         android:layout_marginBottom="30dp"
-        android:minHeight="28dp"
+        android:minHeight="34dp"
         >
     </Button>
 
