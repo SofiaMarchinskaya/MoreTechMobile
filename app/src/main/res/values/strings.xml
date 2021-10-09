@@ -41,5 +41,6 @@
     <string name="vklady">Вклады</string>
     <string name="oblig">Облигации</string>
     <string name="kopilka">Инвест копилка</string>
+    <string name="relative_companies">ДОЧЕРНИЕ КОМПАНИИ</string>
 
 </resources>
