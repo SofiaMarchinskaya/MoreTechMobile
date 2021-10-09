@@ -76,6 +76,7 @@
             android:orientation="horizontal">
             <EditText
                 android:id="@+id/edit"
+                android:minWidth="20dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/rounded_button_grey"
@@ -89,9 +90,10 @@
 
 
         <TextView
+            android:id="@+id/possible"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Доступно: 999 500 ₽" />
+            android:text="Доступно: 999 500 " />
 
     </LinearLayout>
 

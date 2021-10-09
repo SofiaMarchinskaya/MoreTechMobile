@@ -51,6 +51,7 @@ public class GraphFragment extends Fragment {
         TextView deposit = view.findViewById(R.id.deposit);
         Button all = view.findViewById(R.id.all);
         Button set = view.findViewById(R.id.set);
+        TextView possible = view.findViewById(R.id.possible);
         title.setText(this.title);
         deposit.setText(this.deposit+" ₽");
         imageView.setImageResource(imageRes);
@@ -69,21 +70,32 @@ public class GraphFragment extends Fragment {
         graph.getGridLabelRenderer().setNumHorizontalLabels(points.length);
         graph.getGridLabelRenderer().setNumVerticalLabels(0);
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getContext());
+        int enable;
+        if (preferences.getBoolean(Constant.IS_PAYED, false)) {
+            possible.setText("Доступно: " + preferences.getInt(Constant.TOTAL_MONEY, 0));
+            enable = preferences.getInt(Constant.TOTAL_MONEY, 0);
+        }
+        else {
+            possible.setText("Доступно: "+(preferences.getInt(Constant.TOTAL_MONEY, 0)-Constant.PRICE_FOR_YEAR));
+            enable = (preferences.getInt(Constant.TOTAL_MONEY, 0)-Constant.PRICE_FOR_YEAR);
+        }
         all.setOnClickListener(v -> {
-            int total = preferences.getInt(Constant.TOTAL_MONEY, Constant.START_MONEY);
-            preferences.edit().putInt(Constant.TOTAL_MONEY, 0)
-                    .putInt(Constant.DEPOSIT, total+preferences.getInt(Constant.DEPOSIT, 0)).apply();
+            int count = enable/this.deposit;
+            preferences.edit().putInt(Constant.TOTAL_MONEY, enable-(count*this.deposit))
+                    .putInt(Constant.DEPOSIT, count*this.deposit+preferences.getInt(Constant.DEPOSIT, 0))
+                    .apply();
+
             InvestFragment.adapter.notifyDataSetChanged();
             ((GameActivity)getActivity()).close();
         });
         set.setOnClickListener(v -> {
-            int total = preferences.getInt(Constant.TOTAL_MONEY, Constant.START_MONEY);
             if (editText.getText().toString().equals(""))
                 editText.setText("0");
             int minus  = Integer.parseInt(editText.getText().toString());
-            if (minus>0&& total-minus>0) {
-                preferences.edit().putInt(Constant.TOTAL_MONEY, total - minus)
-                        .putInt(Constant.DEPOSIT, preferences.getInt(Constant.DEPOSIT, 0) + minus)
+            int count = minus/this.deposit;
+            if (minus>0&& enable-minus>0&&count>0) {
+                preferences.edit().putInt(Constant.TOTAL_MONEY, enable - (this.deposit*count))
+                        .putInt(Constant.DEPOSIT, preferences.getInt(Constant.DEPOSIT, 0) + this.deposit*count)
                         .apply();
                 InvestFragment.adapter.notifyDataSetChanged();
                 ((GameActivity)getActivity()).close();
