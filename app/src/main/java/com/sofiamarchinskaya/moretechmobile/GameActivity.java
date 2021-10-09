@@ -138,6 +138,14 @@ public class GameActivity extends AppCompatActivity implements GamePresenter.Vie
         tabLayoutMediator.detach();
     }
 
+    public void update(){
+        bottomSheetBehaviour.setState(BottomSheetBehavior.STATE_HIDDEN);
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+        budgetText.setText(preferences.getInt(Constant.TOTAL_MONEY, Constant.START_MONEY) + "");
+        happyText.setText( preferences.getInt(Constant.HAPPY, Constant.START_HAPPY)+"%");
+        tabLayoutMediator.detach();
+    }
+
     @Override
     public void showBottomSheet(Company company, int[] dots) {
         if (tabLayoutMediator.isAttached()) return;
