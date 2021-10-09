@@ -47,10 +47,9 @@
     <LinearLayout
         android:id="@+id/dots_layout"
         android:layout_width="wrap_content"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginBottom="5dp"
         android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="@id/home"
         app:layout_constraintRight_toRightOf="@id/clock"
 
