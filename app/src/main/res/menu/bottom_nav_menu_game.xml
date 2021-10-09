@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/budget"
-        android:title="@string/game"
-        android:icon="@drawable/ic_dollar_square"/>
-    <item
         android:id="@+id/invest"
-        android:title="@string/shop"
+        android:title="Инвестиции"
         android:icon="@drawable/ic_chart_2"/>
     <item
+        android:id="@+id/budget"
+        android:title="Бюджет"
+        android:icon="@drawable/ic_dollar_square"/>
+
+    <item
         android:id="@+id/news"
-        android:title="@string/victorina"
+        android:title="Новости"
         android:icon="@drawable/ic_document"/>
 
 </menu>
