@@ -37,5 +37,9 @@
     <string name="invested">Вложено</string>
     <string name="budget">Бюджет</string>
     <string name="happy">Счастье</string>
+    <string name="stock">Акции</string>
+    <string name="vklady">Вклады</string>
+    <string name="oblig">Облигации</string>
+    <string name="kopilka">Инвест копилка</string>
 
 </resources>
