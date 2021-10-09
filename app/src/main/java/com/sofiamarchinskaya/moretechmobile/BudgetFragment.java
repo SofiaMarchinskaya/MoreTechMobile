@@ -58,20 +58,56 @@ public class BudgetFragment extends Fragment {
         img = result.findViewById(R.id.image_on_card);
         title = result.findViewById(R.id.title_on_card);
         description = result.findViewById(R.id.subtitle_on_card);
-        if (counter== 0)
-        abortButton.setEnabled(false);
-
+        if (counter < cards.size()-1) {
+            abortButton.setEnabled(false);
+            finalButton.setVisibility(View.INVISIBLE);
+            img.setBackgroundResource(cards.get(counter).getImage());
+            title.setText(cards.get(counter).getTitle());
+            description.setText(cards.get(counter).getDescription());
+            happyPercent.setText(cards.get(counter).getHappy_percent() + "");
+            price.setText(cards.get(counter).getPrice() + "");
+            img.setBackgroundResource(cards.get(counter).getImage());
+            title.setText(cards.get(counter).getTitle());
+            description.setText(cards.get(counter).getDescription());
+            happyPercent.setText("+"+cards.get(counter).getHappy_percent()+"%");
+            price.setText(cards.get(counter).getPrice()+"ア");
+        }else if (counter == cards.size()-1){
+            img.setBackgroundResource(cards.get(counter).getImage());
+            title.setText(cards.get(counter).getTitle());
+            description.setText(cards.get(counter).getDescription());
+            happyPercent.setText(cards.get(counter).getHappy_percent() + "");
+            price.setText(cards.get(counter).getPrice() + "");
+            img.setBackgroundResource(cards.get(counter).getImage());
+            title.setText(cards.get(counter).getTitle());
+            description.setText(cards.get(counter).getDescription());
+            happyPercent.setText("+"+cards.get(counter).getHappy_percent()+"%");
+            price.setText(cards.get(counter).getPrice()+"ア");
+            abortButton.setVisibility(View.INVISIBLE);
+            acceptButton.setVisibility(View.INVISIBLE);
+            price.setVisibility(View.INVISIBLE);
+            happyPercent.setVisibility(View.INVISIBLE);
+            finalButton.setVisibility(View.VISIBLE);
+        }else {
+            counter = cards.size()-1;
+            preferences.edit().putInt(Constant.COUNTER, counter).apply();
+            img.setBackgroundResource(cards.get(counter).getImage());
+            title.setText(cards.get(counter).getTitle());
+            description.setText(cards.get(counter).getDescription());
+            happyPercent.setText(cards.get(counter).getHappy_percent() + "");
+            price.setText(cards.get(counter).getPrice() + "");
+            img.setBackgroundResource(cards.get(counter).getImage());
+            title.setText(cards.get(counter).getTitle());
+            description.setText(cards.get(counter).getDescription());
+            happyPercent.setText("+"+cards.get(counter).getHappy_percent()+"%");
+            price.setText(cards.get(counter).getPrice()+"ア");
+            abortButton.setVisibility(View.INVISIBLE);
+            acceptButton.setVisibility(View.INVISIBLE);
+            price.setVisibility(View.INVISIBLE);
+            happyPercent.setVisibility(View.INVISIBLE);
+            finalButton.setVisibility(View.VISIBLE);
+        }
 //    img.setBackgroundResource(0);
-        img.setBackgroundResource(cards.get(counter).getImage());
-        title.setText(cards.get(counter).getTitle());
-        description.setText(cards.get(counter).getDescription());
-        happyPercent.setText(cards.get(counter).getHappy_percent() + "");
-        price.setText(cards.get(counter).getPrice() + "");
-      img.setBackgroundResource(cards.get(counter).getImage());
-    title.setText(cards.get(counter).getTitle());
-    description.setText(cards.get(counter).getDescription());
-    happyPercent.setText("+"+cards.get(counter).getHappy_percent()+"%");
-    price.setText(cards.get(counter).getPrice()+"ア");
+
 
 
         acceptButton.setOnClickListener(view -> {
