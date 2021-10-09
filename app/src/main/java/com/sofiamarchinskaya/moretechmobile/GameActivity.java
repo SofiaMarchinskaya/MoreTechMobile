@@ -63,18 +63,7 @@ public class GameActivity extends AppCompatActivity implements GamePresenter.Vie
             topDots.add(dot);
             dotsLayout.addView(dot,lParams);
         }
-        ViewPager2 pager=(ViewPager2)findViewById(R.id.pager);
-        FragmentStateAdapter pageAdapter = new FragmentAdapter(this);
-        pager.setAdapter(pageAdapter);
-        TabLayout tabLayout = findViewById(R.id.tab_layout);
-        TabLayoutMediator tabLayoutMediator= new TabLayoutMediator(tabLayout, pager, new TabLayoutMediator.TabConfigurationStrategy() {
 
-            @Override
-            public void onConfigureTab(@NonNull TabLayout.Tab tab, int position) {
-                tab.setText("Страница " + (position + 1));
-            }
-        });
-        tabLayoutMediator.attach();
     }
 
 
