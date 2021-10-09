@@ -43,5 +43,6 @@
     <string name="kopilka">Инвест копилка</string>
     <string name="all">Вложить все</string>
     <string name="set">Вложить</string>
+    <string name="relative_companies">ДОЧЕРНИЕ КОМПАНИИ</string>
 
 </resources>
