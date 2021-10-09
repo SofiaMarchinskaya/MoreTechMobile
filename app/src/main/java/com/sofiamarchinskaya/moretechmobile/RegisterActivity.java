@@ -18,7 +18,6 @@ public class RegisterActivity extends AppCompatActivity implements RegisterPrese
     private TextView bottomText;
     private EditText mailEditText;
     private EditText passwordEditText;
-    private EditText nickEditText;
     private Button register;
     private RegisterPresenter presenter;
 
@@ -32,7 +31,6 @@ public class RegisterActivity extends AppCompatActivity implements RegisterPrese
         mailEditText = findViewById(R.id.mail_edit);
         passwordEditText=findViewById(R.id.password_edit);
         register = findViewById(R.id.reg_button);
-        nickEditText = findViewById(R.id.nick_edit);
         presenter = new RegisterPresenter(this);
         backButton.setOnClickListener(view -> {
             Intent intent = new Intent(RegisterActivity.this, FirstRegisterActivity.class);
@@ -40,8 +38,7 @@ public class RegisterActivity extends AppCompatActivity implements RegisterPrese
             finish();
         });
         register.setOnClickListener(v -> {
-            presenter.register(mailEditText.getText().toString(),
-                    nickEditText.getText().toString(), passwordEditText.getText().toString());
+            presenter.register(mailEditText.getText().toString(), passwordEditText.getText().toString());
         });
         bottomText.setOnClickListener(v -> {
             Intent intent = new Intent(RegisterActivity.this, ComeInActivity.class);
@@ -49,10 +46,6 @@ public class RegisterActivity extends AppCompatActivity implements RegisterPrese
             finish();
         });
 
-        Spannable span = new SpannableString(getString(R.string.have_acc));
-        span.setSpan(new ForegroundColorSpan(Color.parseColor("#3A83F1")), 18, 25,
-                Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
-        bottomText.setText(span);
 
 
     }

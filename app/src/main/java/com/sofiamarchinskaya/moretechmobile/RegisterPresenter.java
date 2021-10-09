@@ -12,8 +12,8 @@ public class RegisterPresenter {
         this.viewRegister = viewRegister;
     }
 
-    public void register(String email, String nick, String password){
-        App.getApi().register(email, nick, password).enqueue(new Callback<Object>() {
+    public void register(String email, String password){
+        App.getApi().register(email, password).enqueue(new Callback<Object>() {
             @Override
             public void onResponse(Call<Object> call, Response<Object> response) {
                 if (response != null && response.code() == 200) {

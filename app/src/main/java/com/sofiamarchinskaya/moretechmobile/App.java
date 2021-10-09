@@ -20,7 +20,7 @@ public class App extends Application {
         super.onCreate();
         // TODO:  Поменять ссылку
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("https://l12.scripthub.ru/test/")//ставим снову url
+                .baseUrl("https://google.com/")//ставим снову url
                 .addConverterFactory(GsonConverterFactory.create())//добавляем конвертор
                 .build();
         api = retrofit.create(Api.class);

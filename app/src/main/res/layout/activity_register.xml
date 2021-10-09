@@ -26,55 +26,19 @@
         android:text="@string/reg_in"
         android:textColor="@color/black"
         android:textSize="22sp"
-        app:layout_constraintBottom_toTopOf="@id/text3"
+        app:layout_constraintBottom_toTopOf="@id/text2"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@id/back_button">
 
     </TextView>
 
-    <TextView
-        android:id="@+id/text3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="48dp"
-        android:layout_marginBottom="6dp"
-        android:fontFamily="@font/regular"
-        android:text="@string/nick"
-        android:textColor="#889099"
-        android:textSize="14sp"
-        app:layout_constraintTop_toBottomOf="@id/text1"
-        app:layout_constraintLeft_toLeftOf="parent"
-
-        >
-
-    </TextView>
-
-    <EditText
-        android:id="@+id/nick_edit"
-        style="@style/edit_text"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="24dp"
-        android:layout_marginTop="6dp"
-        android:layout_marginRight="24dp"
-        android:background="@drawable/states_edittext"
-        android:fontFamily="@font/montserrat_medium"
-        android:hint="@string/hint_nick"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/text3"
-
-        >
-
-    </EditText>
 
     <TextView
         android:id="@+id/text2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="41dp"
         android:layout_marginBottom="6dp"
         android:fontFamily="@font/regular"
         android:text="@string/mail"
@@ -82,7 +46,7 @@
         android:textSize="14sp"
         app:layout_constraintBottom_toTopOf="@id/mail_edit"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/nick_edit">
+        app:layout_constraintTop_toBottomOf="@id/text1">
 
     </TextView>
 
@@ -152,7 +116,7 @@
         android:layout_marginRight="24dp"
         android:background="@drawable/states_button"
         android:fontFamily="@font/semibold"
-        android:text="@string/register"
+        android:text="@string/or"
         app:layout_constraintBottom_toTopOf="@id/bottom_text">
 
     </Button>
@@ -161,16 +125,39 @@
         android:id="@+id/bottom_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/montserrat_medium"
+        android:fontFamily="@font/semibold"
         android:gravity="center"
         android:paddingTop="13dp"
         android:paddingBottom="10dp"
-        android:text="@string/have_acc"
+        android:text="@string/or"
         android:textColor="#889099"
+        android:drawableStart="@drawable/ic_horizontal"
+        android:drawableEnd="@drawable/ic_horizontal"
         android:textSize="14sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/vk"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
 
         />
+    <View
+        android:id="@+id/vk"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:background="@drawable/ic_vk"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="18dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/facebook"/>
+    <View
+        android:id="@+id/facebook"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:background="@drawable/ic_facebook"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="18dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/vk"
+        app:layout_constraintRight_toRightOf="parent"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
