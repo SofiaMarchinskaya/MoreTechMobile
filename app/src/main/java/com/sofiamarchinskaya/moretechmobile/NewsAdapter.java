@@ -36,7 +36,7 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder>{
     public void onBindViewHolder(NewsAdapter.ViewHolder holder, @SuppressLint("RecyclerView") int position) {
         News [] news = NewsUtils.getCurrentNews().toArray(new News[0]);
         holder.news_text.setText(news[position].getText());
-        if (news[position].getType()==Constant.BAD_NEWS){
+        if (news[position].getType().equals(Constant.BAD_NEWS)){
             holder.news_text.setCompoundDrawablesWithIntrinsicBounds(R.drawable.red, 0, 0, 0);
         }else {
             holder.news_text.setCompoundDrawablesWithIntrinsicBounds(R.drawable.blue, 0, 0, 0);
