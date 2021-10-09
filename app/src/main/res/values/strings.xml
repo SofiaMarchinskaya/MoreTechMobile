@@ -44,5 +44,8 @@
     <string name="all">Вложить все</string>
     <string name="set">Вложить</string>
     <string name="relative_companies">ДОЧЕРНИЕ КОМПАНИИ</string>
+    <string name="stock_market">Биржа</string>
+    <string name="news">Новости</string>
+    <string name="dividendi">Дивиденды</string>
 
 </resources>
