@@ -29,7 +29,7 @@ public class AboutCompanyFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View result = inflater.inflate(R.layout.invest_fragment, container, false);
+        View result = inflater.inflate(R.layout.about_company_fragment, container, false);
         ((ImageView)result.findViewById(R.id.company_image)).setImageResource(img_id);
         ((TextView)result.findViewById(R.id.about_company)).setText(aboutCompany);
         LinearLayout linearLayout = result.findViewById(R.id.linear_companies);

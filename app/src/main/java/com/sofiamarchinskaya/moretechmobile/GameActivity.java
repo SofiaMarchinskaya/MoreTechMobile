@@ -72,11 +72,17 @@ public class GameActivity extends AppCompatActivity implements GamePresenter.Vie
         TabLayout tabLayout = findViewById(R.id.tab_layout);
         tabLayoutMediator = new TabLayoutMediator(tabLayout, pager,
                 (tab, position) -> tab.setText("Страница " + (position + 1)));
+        adapter = new FragmentAdapter(this);
+        adapter.setData(InvestFragment.gamePresenter.getCompanyList().get(0), new int[]{123,123,
+                123,123,123,123,123,132});
+        pager.setAdapter(adapter);
+        tabLayoutMediator.attach();
     }
 
 
     @Override
     public void showBottomSheet(Company company, int[] dots) {
+        if (tabLayoutMediator.isAttached()) return;
         adapter = new FragmentAdapter(this);
         adapter.setData(company, dots);
         pager.setAdapter(adapter);
