@@ -36,7 +36,6 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder>{
 
     @Override
     public void onBindViewHolder(NewsAdapter.ViewHolder holder, @SuppressLint("RecyclerView") int position) {
-    News n = NewsUtils.getCurrentNews();
     }
 
     @Override
