@@ -171,8 +171,8 @@ public class GameActivity extends AppCompatActivity implements GamePresenter.Vie
     public void switchBottomNavMenu(){
         navigation.getMenu().clear();
         navigation.inflateMenu(R.menu.bottom_nav_menu_stock_market);
-//        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-//        ft.replace(R.id.investFragment, new BudgetFragment());
-//        ft.commit();
+        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+        ft.replace(R.id.investFragment, new NewsFragment());
+        ft.commit();
     }
 }

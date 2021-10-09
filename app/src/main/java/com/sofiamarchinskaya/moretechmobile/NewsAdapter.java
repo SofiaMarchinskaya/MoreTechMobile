@@ -38,8 +38,10 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder>{
         holder.news_text.setText(news[position].getText());
         if (news[position].getType().equals(Constant.BAD_NEWS)){
             holder.news_text.setCompoundDrawablesWithIntrinsicBounds(R.drawable.red, 0, 0, 0);
+            holder.news_text.setCompoundDrawablePadding(32);
         }else {
             holder.news_text.setCompoundDrawablesWithIntrinsicBounds(R.drawable.blue, 0, 0, 0);
+            holder.news_text.setCompoundDrawablePadding(32);
         }
     }
 
