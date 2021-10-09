@@ -13,7 +13,7 @@ public class Constant {
     public static final String GOOD_NEWS = "good";
     public static final String BAD_NEWS = "bad";
     public static final String NOTHING = "nothing";
-
+    public static final String LAST_INDEX= "lastindex";
 
     public static final int LVL_NOVICHEK = 0;
     public static final int LVL_PRODVIN = 1;

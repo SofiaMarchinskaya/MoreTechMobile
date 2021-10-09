@@ -12,7 +12,7 @@ public class GraphUtils {
         Random random = new Random();
         int [] mass = new int[Constant.NUMBER_OF_DOTS];
         for (int i = 0; i < Constant.NUMBER_OF_DOTS; i++) {
-            mass[i] = random.nextInt(100);
+            mass[i] = random.nextInt(100)+10;
         }
         for (int i = 0; i < Constant.NUMBER_OF_DOTS; i++) {
             for (int j = i; j < Constant.NUMBER_OF_DOTS; j++) {
@@ -34,7 +34,7 @@ public class GraphUtils {
         Random random = new Random();
         int [] mass = new int[Constant.NUMBER_OF_DOTS];
         for (int i = 0; i < Constant.NUMBER_OF_DOTS; i++) {
-            mass[i] = random.nextInt(100);
+            mass[i] = random.nextInt(100)+10;
         }
         for (int i = 0; i < Constant.NUMBER_OF_DOTS; i++) {
             for (int j = i; j < Constant.NUMBER_OF_DOTS; j++) {

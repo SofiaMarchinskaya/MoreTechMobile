@@ -32,8 +32,10 @@ public class AboutCompanyFragment extends Fragment {
         View result = inflater.inflate(R.layout.about_company_fragment, container, false);
         ((ImageView)result.findViewById(R.id.company_image)).setImageResource(img_id);
         ((TextView)result.findViewById(R.id.about_company)).setText(aboutCompany);
+        ((TextView)result.findViewById(R.id.company_name)).setText(title);
         LinearLayout linearLayout = result.findViewById(R.id.linear_companies);
         LinearLayout.LayoutParams linLayoutParam = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+        linLayoutParam.setMargins(0,0,16,16);
         final View view = getLayoutInflater().inflate(R.layout.company_text_image, null);
         ImageView img;
         TextView textView;
@@ -42,9 +44,12 @@ public class AboutCompanyFragment extends Fragment {
             img.setBackgroundResource(relativeCompanies.get(i).getImageResources());
             textView = new TextView(getContext());
             textView.setText(relativeCompanies.get(i).getTitle());
-            linearLayout.addView(img,linLayoutParam);
-            linearLayout.addView(textView,linLayoutParam);
-
+            textView.setTextSize(17);
+            textView.setTextColor(getResources().getColor(R.color.blueBlack));
+            LinearLayout layout = new LinearLayout(view.getContext());
+            layout.addView(img,linLayoutParam);
+            layout.addView(textView,linLayoutParam);
+            linearLayout.addView(layout,linLayoutParam);
         }
         return result;
     }
