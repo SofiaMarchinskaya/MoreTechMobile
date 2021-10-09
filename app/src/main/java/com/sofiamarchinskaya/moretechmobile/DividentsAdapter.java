@@ -16,14 +16,15 @@ import androidx.recyclerview.widget.RecyclerView;
 public class DividentsAdapter extends RecyclerView.Adapter<DividentsAdapter.ViewHolder> {
     private final LayoutInflater inflater;
     private Context context;
-
+    SharedPreferences preferences ;
     DividentsAdapter(Context context) {
 
         this.inflater = LayoutInflater.from(context);
         this.context = context;
+        preferences = PreferenceManager.getDefaultSharedPreferences(context);
     }
 
-    SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
+
 
     @NonNull
     @Override

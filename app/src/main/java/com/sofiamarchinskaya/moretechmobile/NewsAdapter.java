@@ -12,9 +12,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.sofiamarchinskaya.moretechmobile.models.News;
 import com.sofiamarchinskaya.moretechmobile.utils.NewsUtils;
 
-import java.util.List;
-import java.util.Set;
-
 public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder>{
 
     private final LayoutInflater inflater;
@@ -37,11 +34,9 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder>{
         News [] news = NewsUtils.getCurrentNews().toArray(new News[0]);
         holder.news_text.setText(news[position].getText());
         if (news[position].getType().equals(Constant.BAD_NEWS)){
-            holder.news_text.setCompoundDrawablesWithIntrinsicBounds(R.drawable.red, 0, 0, 0);
-            holder.news_text.setCompoundDrawablePadding(32);
+            holder.stick.setBackgroundResource(R.drawable.red);
         }else {
-            holder.news_text.setCompoundDrawablesWithIntrinsicBounds(R.drawable.blue, 0, 0, 0);
-            holder.news_text.setCompoundDrawablePadding(32);
+            holder.stick.setBackgroundResource(R.drawable.blue);
         }
     }
 
@@ -52,9 +47,11 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder>{
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         final TextView news_text;
+        final View stick;
         ViewHolder(View view){
             super(view);
             news_text = (TextView)view.findViewById(R.id.text);
+            this.stick = view.findViewById(R.id.stick);
 
         }
     }

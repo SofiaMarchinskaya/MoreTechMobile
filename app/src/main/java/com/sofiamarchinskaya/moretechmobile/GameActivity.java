@@ -56,11 +56,14 @@ public class GameActivity extends AppCompatActivity implements GamePresenter.Vie
                     ft1.commit();
                     return true;
                 case R.id.news:
-
-                case R.id.dividenti:
                     FragmentTransaction ft2 = getSupportFragmentManager().beginTransaction();
                     ft2.replace(R.id.investFragment,  new NewsFragment());
                     ft2.commit();
+                    return true;
+                case R.id.dividenti:
+                    FragmentTransaction ft3 = getSupportFragmentManager().beginTransaction();
+                    ft3.replace(R.id.investFragment,  new DividentsFragment());
+                    ft3.commit();
                     return true;
 
             }
