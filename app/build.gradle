@@ -35,7 +35,7 @@ dependencies {
     implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.1'
     implementation "android.arch.navigation:navigation-fragment:1.0.0"
-
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation "android.arch.navigation:navigation-ui:1.0.0"
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
