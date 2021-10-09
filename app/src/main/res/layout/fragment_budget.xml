@@ -32,7 +32,6 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="32dp"
-                        android:src="@drawable/ic_empty_wallet"
                         app:layout_constraintLeft_toLeftOf="parent"
                         app:layout_constraintRight_toRightOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -123,6 +122,20 @@
                         app:layout_constraintRight_toLeftOf="@id/price_on_card"
                         app:layout_constraintTop_toBottomOf="@id/subtitle_on_card"
                         />
+
+                    <Button
+                        android:id="@+id/finalButton"
+                        android:layout_marginHorizontal="26dp"
+                        android:layout_marginBottom="32dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        >
+
+
+                    </Button>
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.cardview.widget.CardView>
