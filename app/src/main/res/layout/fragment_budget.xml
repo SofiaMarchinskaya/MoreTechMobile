@@ -108,7 +108,7 @@
                         android:background="@drawable/rounded_box_green"
                         android:fontFamily="@font/semibold"
                         app:layout_constraintLeft_toRightOf="@id/price_on_card"
-                        app:layout_constraintRight_toleftOf="@id/tick_square"
+                        app:layout_constraintRight_toLeftOf="@id/tick_square"
                         app:layout_constraintTop_toBottomOf="@id/subtitle_on_card"
                         android:layout_marginBottom="32dp"
                         app:layout_constraintBottom_toBottomOf="parent">
