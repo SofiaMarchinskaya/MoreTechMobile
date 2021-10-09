@@ -48,12 +48,10 @@
         android:id="@+id/dots_layout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="5dp"
+        android:layout_marginTop="5dp"
         android:orientation="horizontal"
         app:layout_constraintLeft_toLeftOf="@id/home"
         app:layout_constraintRight_toRightOf="@id/clock"
-
-
         app:layout_constraintTop_toBottomOf="@id/top_text">
 
 
@@ -80,6 +78,7 @@
         app:layout_constraintTop_toBottomOf="@id/invested_money"
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginLeft="39dp"
+        android:layout_marginRight="39dp"
         android:text="@string/invested"
 
         >
@@ -90,6 +89,8 @@
         android:id="@+id/vertical_image"
         android:layout_width="2dp"
         android:layout_height="20dp"
+        android:layout_marginLeft="39dp"
+        android:layout_marginTop="25dp"
         android:src="@drawable/ic_vector"
         app:layout_constraintTop_toBottomOf="@id/home"
         app:layout_constraintLeft_toRightOf="@id/vl"
@@ -106,19 +107,56 @@
         >
     </TextView>
     <TextView
+        android:id="@+id/budget_down"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/montserrat_medium"
         android:textSize="12sp"
         android:textColor="#99ABC6"
-        app:layout_constraintTop_toTopOf="@id/budget"
-        app:layout_constraintLeft_toRightOf="@id/home"
+        app:layout_constraintTop_toBottomOf="@id/budget"
+        app:layout_constraintLeft_toRightOf="@id/vertical_image"
         android:layout_marginLeft="28dp"
+        android:text="@string/budget"
+
+        >
+    </TextView>
+
+    <ImageView
+        android:id="@+id/vertical_image2"
+        android:layout_width="2dp"
+        android:layout_height="20dp"
+        android:layout_marginLeft="39dp"
+        android:layout_marginTop="25dp"
+        android:src="@drawable/ic_vector"
+        app:layout_constraintTop_toBottomOf="@id/home"
+        app:layout_constraintLeft_toRightOf="@id/budget_down"
+        >
+    </ImageView>
+
+    <TextView
+        android:id="@+id/percent_happy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/bold_num"
+        app:layout_constraintTop_toBottomOf="@id/home"
+        app:layout_constraintLeft_toRightOf="@id/vertical_image2"
+        >
+    </TextView>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat_medium"
+        android:textSize="12sp"
+        android:textColor="#99ABC6"
+        app:layout_constraintTop_toBottomOf="@id/budget"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginRight="39dp"
         android:text="@string/budget"
 
         >
 
     </TextView>
+
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigationView"
         android:layout_width="match_parent"
