@@ -48,7 +48,7 @@
             app:layout_constraintLeft_toRightOf="@id/image_stock"
             app:layout_constraintBottom_toBottomOf="parent"/>
         <TextView
-            android:id="@+id/price"
+            android:id="@+id/deposite"
             android:layout_width="wrap_content"
             android:text="Test text"
             android:fontFamily="@font/regular"
