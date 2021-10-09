@@ -67,6 +67,11 @@ public class BudgetFragment extends Fragment {
         description.setText(cards.get(counter).getDescription());
         happyPercent.setText(cards.get(counter).getHappy_percent() + "");
         price.setText(cards.get(counter).getPrice() + "");
+      img.setBackgroundResource(cards.get(counter).getImage());
+    title.setText(cards.get(counter).getTitle());
+    description.setText(cards.get(counter).getDescription());
+    happyPercent.setText("+"+cards.get(counter).getHappy_percent()+"%");
+    price.setText(cards.get(counter).getPrice()+"ア");
 
 
         acceptButton.setOnClickListener(view -> {
