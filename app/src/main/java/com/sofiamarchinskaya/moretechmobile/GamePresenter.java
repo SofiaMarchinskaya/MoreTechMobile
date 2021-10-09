@@ -13,13 +13,11 @@ import java.util.List;
 
 public class GamePresenter {
     private ViewActivity viewActivity;
-    private ViewDeposit viewDeposit;
     private List<Company> companyList;
 
     public GamePresenter(ViewActivity viewActivity,
-                         ViewDeposit viewDeposit, Context context) {
+                          Context context) {
         this.viewActivity = viewActivity;
-        this.viewDeposit = viewDeposit;
         companyList = new ArrayList<>();
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
         List<Company> companies = new ArrayList<>();
@@ -52,11 +50,6 @@ public class GamePresenter {
         viewActivity.showBottomSheet(companyList.get(position), getGraphDots(position));
     }
 
-    public void closeBottomSheet() {
-        viewDeposit.updateData();
-        viewActivity.updateData();
-
-    }
 
     public List<Company> getCompanyList() {
         return companyList;
@@ -73,8 +66,6 @@ public class GamePresenter {
         void updateData();
     }
 
-    interface ViewDeposit {
-        void updateData();
-    }
+
 
 }

@@ -72,7 +72,7 @@ public class GraphFragment extends Fragment {
         all.setOnClickListener(v -> {
             int total = preferences.getInt(Constant.TOTAL_MONEY, Constant.START_MONEY);
             preferences.edit().putInt(Constant.TOTAL_MONEY, 0)
-                    .putInt(Constant.DEPOSIT, total).apply();
+                    .putInt(Constant.DEPOSIT, total+preferences.getInt(Constant.DEPOSIT, 0)).apply();
             InvestFragment.adapter.notifyDataSetChanged();
             ((GameActivity)getActivity()).close();
         });

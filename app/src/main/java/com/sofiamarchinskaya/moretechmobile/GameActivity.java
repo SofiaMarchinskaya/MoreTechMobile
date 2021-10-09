@@ -126,10 +126,12 @@ public class GameActivity extends AppCompatActivity implements GamePresenter.Vie
         });
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.bottomNavigationView);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+        ft.replace(R.id.investFragment, new BudgetFragment());
+        ft.commit();
     }
     public void close(){
         bottomSheetBehaviour.setState(BottomSheetBehavior.STATE_HIDDEN);
-        InvestFragment.gamePresenter.closeBottomSheet();
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
         investedText.setText(preferences.getInt(Constant.DEPOSIT, 0) + "");
         budgetText.setText(preferences.getInt(Constant.TOTAL_MONEY, Constant.START_MONEY) + "");
