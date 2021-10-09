@@ -3,6 +3,8 @@ package com.sofiamarchinskaya.moretechmobile;
 import android.app.Application;
 
 
+import com.sofiamarchinskaya.moretechmobile.utils.NewsUtils;
+
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
@@ -22,6 +24,6 @@ public class App extends Application {
                 .addConverterFactory(GsonConverterFactory.create())//добавляем конвертор
                 .build();
         api = retrofit.create(Api.class);
-
+        NewsUtils.init();
     }
 }

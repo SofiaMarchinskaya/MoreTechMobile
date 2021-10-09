@@ -1,4 +1,4 @@
-package com.sofiamarchinskaya.moretechmobile;
+package com.sofiamarchinskaya.moretechmobile.models;
 
 
 public class Rule {
