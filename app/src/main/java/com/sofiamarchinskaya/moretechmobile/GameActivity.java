@@ -10,10 +10,12 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.sofiamarchinskaya.moretechmobile.models.Company;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class GameActivity extends AppCompatActivity {
+public class GameActivity extends AppCompatActivity implements GamePresenter.ViewActivity {
     private TextView topTextView;
     private List<View> topDots;
     private View dot;
@@ -58,6 +60,16 @@ public class GameActivity extends AppCompatActivity {
         }
 
 
+
+    }
+
+    @Override
+    public void showBottomSheet(Company company, int[] dots) {
+
+    }
+
+    @Override
+    public void updateData() {
 
     }
 }
