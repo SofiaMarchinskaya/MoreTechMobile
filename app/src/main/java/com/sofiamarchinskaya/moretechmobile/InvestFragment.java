@@ -10,6 +10,14 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class InvestFragment extends Fragment implements GamePresenter.ViewDeposit,InvestAdapter.OnItemClicked  {
   public static GamePresenter gamePresenter;
+
+    public static InvestFragment newInstance(int page) {
+        InvestFragment fragment = new InvestFragment();
+        Bundle args=new Bundle();
+        args.putInt("num", page);
+        fragment.setArguments(args);
+        return fragment;
+    }
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {

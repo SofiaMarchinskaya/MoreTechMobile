@@ -1,6 +1,9 @@
 package com.sofiamarchinskaya.moretechmobile;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.viewpager2.adapter.FragmentStateAdapter;
+import androidx.viewpager2.widget.ViewPager2;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -10,6 +13,8 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.google.android.material.tabs.TabLayout;
+import com.google.android.material.tabs.TabLayoutMediator;
 import com.sofiamarchinskaya.moretechmobile.models.Company;
 
 import java.util.ArrayList;
@@ -58,10 +63,21 @@ public class GameActivity extends AppCompatActivity implements GamePresenter.Vie
             topDots.add(dot);
             dotsLayout.addView(dot,lParams);
         }
+        ViewPager2 pager=(ViewPager2)findViewById(R.id.pager);
+        FragmentStateAdapter pageAdapter = new FragmentAdapter(this);
+        pager.setAdapter(pageAdapter);
+        TabLayout tabLayout = findViewById(R.id.tab_layout);
+        TabLayoutMediator tabLayoutMediator= new TabLayoutMediator(tabLayout, pager, new TabLayoutMediator.TabConfigurationStrategy() {
 
-
-
+            @Override
+            public void onConfigureTab(@NonNull TabLayout.Tab tab, int position) {
+                tab.setText("Страница " + (position + 1));
+            }
+        });
+        tabLayoutMediator.attach();
     }
+
+
 
     @Override
     public void showBottomSheet(Company company, int[] dots) {
