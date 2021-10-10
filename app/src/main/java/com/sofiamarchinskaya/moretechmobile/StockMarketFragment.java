@@ -56,12 +56,12 @@ public class StockMarketFragment extends Fragment {
         graph.getGridLabelRenderer().setVerticalLabelsColor(getResources().getColor(R.color.white));
         graph.getGridLabelRenderer().setHorizontalLabelsColor(getResources().getColor(R.color.white));
         graph.addSeries(series);
-        graph.getGridLabelRenderer().setNumHorizontalLabels(points.length);
+        graph.getGridLabelRenderer().setNumHorizontalLabels(points.length/3);
         graph.getGridLabelRenderer().setNumVerticalLabels(0);
         if (preferences.getInt(Constant.STEP, 1)==2){
-            setSecondPiece(series);
+            setSecondPiece(series, graph);
         }else if (preferences.getInt(Constant.STEP, 1)==3){
-            setThirdPiece(series);
+            setThirdPiece(series, graph);
         }
         Button sell = view.findViewById(R.id.sell);
         sell.setOnClickListener(v -> {
@@ -69,17 +69,17 @@ public class StockMarketFragment extends Fragment {
                     .putBoolean("Alibaba"+"isSell", true)
                     .putInt(Constant.STEP, 3)
                     .apply();
-            setSecondPiece(series);
-            setThirdPiece(series);
+            setSecondPiece(series, graph);
+            setThirdPiece(series, graph);
             step.setText("Шаг "+preferences.getInt(Constant.STEP, 1)+" из 3");
         });
         Button hold = view.findViewById(R.id.hold);
         hold.setOnClickListener(v -> {
             if (preferences.getInt(Constant.STEP, 1)==1){
-                setSecondPiece(series);
+                setSecondPiece(series, graph);
                 preferences.edit().putInt(Constant.STEP, 2).apply();
             }else if (preferences.getInt(Constant.STEP, 1)==2){
-                setThirdPiece(series);
+                setThirdPiece(series, graph);
                 preferences.edit().putInt(Constant.STEP, 3).apply();
             }
             else {
@@ -89,17 +89,19 @@ public class StockMarketFragment extends Fragment {
         });
         return view;
     }
-    private void setSecondPiece(LineGraphSeries<DataPoint> series){
+    private void setSecondPiece(LineGraphSeries<DataPoint> series,GraphView graphView){
         series.resetData(new DataPoint[0]);
         for (int i = 0; i < 2*points.length/3; i++) {
             series.appendData(new DataPoint(i, points[i]), false, points.length);
         }
+        graphView.getGridLabelRenderer().setNumHorizontalLabels(2*points.length/3);
     }
-    private void setThirdPiece(LineGraphSeries<DataPoint> series){
+    private void setThirdPiece(LineGraphSeries<DataPoint> series,GraphView graphView){
         series.resetData(new DataPoint[0]);
         for (int i = 0; i < points.length; i++) {
             series.appendData(new DataPoint(i, points[i]), false, points.length);
         }
+        graphView.getGridLabelRenderer().setNumHorizontalLabels(points.length);
     }
 
 }
