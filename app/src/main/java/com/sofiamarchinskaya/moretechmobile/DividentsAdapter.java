@@ -48,8 +48,10 @@ public class DividentsAdapter extends RecyclerView.Adapter<DividentsAdapter.View
                 holder.image.setBackgroundResource(
                         preferences.getInt(m[position] + "image", R.drawable.aibaba));
                 holder.divident.setText(
-                        "+ " + (preferences.getInt(m[position] + "deposit", 22650) * preferences
-                                .getInt(m[position] + "count", 1) * 0.0249) +
+                        "+ " + (preferences.getInt(m[position] + "deposit",
+                                (int) (preferences.getInt("Alibaba", 22690)*Math.pow(Constant.INF,
+                                                                        preferences.getInt(Constant.YEAR,0)))) * preferences
+                                .getInt(m[position] + "count", 1) *Constant.KUP) +
                                 "ア");
             }
         }else {

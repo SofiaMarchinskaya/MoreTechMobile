@@ -33,9 +33,12 @@ public class BudgetFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View result = inflater.inflate(R.layout.fragment_budget, container, false);
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getContext());
         cards = new ArrayList<>();
         cards.add(new BudgetCard(R.drawable.ic_wallet, "Минимальные траты " +
-                "на жизнь за год", R.string.min_trati, Constant.PRICE_FOR_YEAR, 16));
+                "на жизнь за год", R.string.min_trati,
+                Constant.PRICE_FOR_YEAR*(int)Math.pow(Constant.INF,
+                preferences.getInt(Constant.YEAR,0)), 16));
         cards.add(new BudgetCard(R.drawable.ic_car, "Путешествие " +
                 "со всей семьёй", R.string.travel, 21550, 5));
         cards.add(new BudgetCard(R.drawable.ic_gift, "Подарки для коллег " +
@@ -46,7 +49,15 @@ public class BudgetFragment extends Fragment {
                 "программа", R.string.entertainment, 21550, 5));
         cards.add(new BudgetCard(R.drawable.ic_tick_square, "Основные решения " +
                 "приняты", R.string.final_card, Constant.PRICE_FOR_YEAR, 16));
-        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getContext());
+        Button pay = result.findViewById(R.id.pay);
+        pay.setText(455650*(int)Math.pow(Constant.INF,
+                preferences.getInt(Constant.YEAR,0))+" ア");
+        Button pay1 = result.findViewById(R.id.pay1);
+        pay1.setText(455650*(int)Math.pow(Constant.INF,
+                preferences.getInt(Constant.YEAR,0))+" ア");
+        Button pay2 = result.findViewById(R.id.pay2);
+        pay2.setText(455650*(int)Math.pow(Constant.INF,
+                preferences.getInt(Constant.YEAR,0))+" ア");
         counter = preferences.getInt(Constant.COUNTER, 0);
 
         acceptButton = result.findViewById(R.id.tick_square);
@@ -110,7 +121,10 @@ public class BudgetFragment extends Fragment {
 //    img.setBackgroundResource(0);
 
 
-
+        if (preferences.getInt(Constant.TOTAL_MONEY,
+                0) - cards.get(counter).getPrice() < 0)
+            acceptButton.setEnabled(false);
+        else acceptButton.setEnabled(true);
         acceptButton.setOnClickListener(view -> {
             if (counter==0) preferences.edit().putBoolean(Constant.IS_PAYED, true).apply();
             int happy;
@@ -145,6 +159,7 @@ public class BudgetFragment extends Fragment {
             if (preferences.getInt(Constant.TOTAL_MONEY,
                     0) - cards.get(counter).getPrice() < 0)
                 acceptButton.setEnabled(false);
+            else acceptButton.setEnabled(true);
         });
         abortButton.setOnClickListener(view -> {
             counter++;
@@ -161,6 +176,10 @@ public class BudgetFragment extends Fragment {
                 happyPercent.setVisibility(View.INVISIBLE);
                 finalButton.setVisibility(View.VISIBLE);
             }
+            if (preferences.getInt(Constant.TOTAL_MONEY,
+                    0) - cards.get(counter).getPrice() < 0)
+                acceptButton.setEnabled(false);
+            else acceptButton.setEnabled(true);
         });
         finalButton.setOnClickListener(v -> {
             ((GameActivity) getActivity()).switchBottomNavMenu();

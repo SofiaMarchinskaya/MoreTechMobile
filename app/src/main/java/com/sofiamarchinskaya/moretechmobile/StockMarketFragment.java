@@ -3,6 +3,7 @@ package com.sofiamarchinskaya.moretechmobile;
 import android.content.SharedPreferences;
 import android.graphics.Paint;
 import android.os.Bundle;
+import android.os.Handler;
 import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,6 +12,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.jjoe64.graphview.GraphView;
 import com.jjoe64.graphview.series.DataPoint;
@@ -30,8 +32,9 @@ public class StockMarketFragment extends Fragment {
         TextView count = view.findViewById(R.id.subtitle_stock);
         TextView dividends = view.findViewById(R.id.dividents);
         count.setText(preferences.getInt("Alibaba"+"count", 1)+ " акций(я)");
-        dividends.setText("+ " + (preferences.getInt("Alibaba" + "deposit", 22650) * preferences
-                .getInt("Alibaba" + "count", 1) * 0.0249) +
+        dividends.setText("+ " + (preferences.getInt("Alibaba" + "deposit", (int) (preferences.getInt("Alibaba", 22690)*Math.pow(Constant.INF,
+                preferences.getInt(Constant.YEAR,0)))) * preferences
+                .getInt("Alibaba" + "count", 1) * Constant.KUP) +
                 "ア");
         step.setText("Шаг "+preferences.getInt(Constant.STEP, 1)+" из 3");
         GraphView graph = view.findViewById(R.id.graph);
@@ -65,13 +68,25 @@ public class StockMarketFragment extends Fragment {
         }
         Button sell = view.findViewById(R.id.sell);
         sell.setOnClickListener(v -> {
+
+
             preferences.edit()
                     .putBoolean("Alibaba"+"isSell", true)
                     .putInt(Constant.STEP, 3)
                     .apply();
             setSecondPiece(series, graph);
             setThirdPiece(series, graph);
+
             step.setText("Шаг "+preferences.getInt(Constant.STEP, 1)+" из 3");
+            Handler handler = new Handler();
+            handler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
+                    ft.replace(R.id.investFragment, new EndOfTurnFragment());
+                    ft.commit();
+                }
+            }, 2000);
         });
         Button hold = view.findViewById(R.id.hold);
         hold.setOnClickListener(v -> {
@@ -83,7 +98,15 @@ public class StockMarketFragment extends Fragment {
                 preferences.edit().putInt(Constant.STEP, 3).apply();
             }
             else {
-
+                Handler handler = new Handler();
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
+                        ft.replace(R.id.investFragment, new EndOfTurnFragment());
+                        ft.commit();
+                    }
+                }, 2000);
             }
             step.setText("Шаг "+preferences.getInt(Constant.STEP, 1)+" из 3");
         });
