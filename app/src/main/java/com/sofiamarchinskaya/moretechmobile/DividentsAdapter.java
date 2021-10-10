@@ -41,13 +41,17 @@ public class DividentsAdapter extends RecyclerView.Adapter<DividentsAdapter.View
             holder.layoutD.setVisibility(View.VISIBLE);
             String[] m = preferences.getStringSet(Constant.STOCKS, new ArraySet<String>())
                     .toArray(new String[0]);
-            holder.companyName.setText(m[position]);
-            holder.image.setBackgroundResource(
-                    preferences.getInt(m[position] + "image", R.drawable.aibaba));
-            holder.divident.setText(
-                    "+ " + (preferences.getInt(m[position] + "deposit", 22650) * preferences
-                            .getInt(m[position] + "count", 1) * 0.0249) +
-                            "ア");
+            if (preferences.getBoolean(m[position]+"isSell", false)){
+                holder.layoutD.setVisibility(View.INVISIBLE);
+            } else {
+                holder.companyName.setText(m[position]);
+                holder.image.setBackgroundResource(
+                        preferences.getInt(m[position] + "image", R.drawable.aibaba));
+                holder.divident.setText(
+                        "+ " + (preferences.getInt(m[position] + "deposit", 22650) * preferences
+                                .getInt(m[position] + "count", 1) * 0.0249) +
+                                "ア");
+            }
         }else {
             holder.layoutD.setVisibility(View.INVISIBLE);
         }

@@ -65,5 +65,7 @@
 свободные средства</string>
     <string name="or">или</string>
     <string name="end_gift">Ваша награда</string>
+    <string name="sell">Продать</string>
+    <string name="hold">Держать</string>
 
 </resources>

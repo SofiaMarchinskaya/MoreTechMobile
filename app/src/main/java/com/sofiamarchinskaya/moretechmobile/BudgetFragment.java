@@ -59,6 +59,7 @@ public class BudgetFragment extends Fragment {
         title = result.findViewById(R.id.title_on_card);
         description = result.findViewById(R.id.subtitle_on_card);
         if (counter < cards.size()-1) {
+            if (counter==0)
             abortButton.setEnabled(false);
             finalButton.setVisibility(View.INVISIBLE);
             img.setBackgroundResource(cards.get(counter).getImage());

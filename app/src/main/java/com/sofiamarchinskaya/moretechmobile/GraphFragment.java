@@ -85,7 +85,7 @@ public class GraphFragment extends Fragment {
             Set<String> newSet = preferences.getStringSet(Constant.STOCKS, new ArraySet<>());
             newSet.add(this.title);
             int count = enable/this.deposit;
-            preferences.edit().putInt(Constant.TOTAL_MONEY, enable-(count*this.deposit))
+            preferences.edit().putInt(Constant.TOTAL_MONEY, preferences.getInt(Constant.TOTAL_MONEY, Constant.START_MONEY)-(count*this.deposit))
                     .putInt(Constant.DEPOSIT, count*this.deposit+preferences.getInt(Constant.DEPOSIT, 0))
                     .putStringSet(Constant.STOCKS, newSet)
                     .putInt(this.title+"count", preferences.getInt(this.title+"count", 0)+count)
@@ -101,10 +101,11 @@ public class GraphFragment extends Fragment {
                 editText.setText("0");
             int minus  = Integer.parseInt(editText.getText().toString());
             int count = minus/this.deposit;
-            if (minus>0&& enable-minus>0&&count>0) {
+            if (minus>0&& enable-minus>=0&&count>0) {
                 Set<String> newSet = preferences.getStringSet(Constant.STOCKS, new ArraySet<>());
                 newSet.add(this.title);
-                preferences.edit().putInt(Constant.TOTAL_MONEY, enable - (this.deposit*count))
+                preferences.edit().putInt(Constant.TOTAL_MONEY,
+                        preferences.getInt(Constant.TOTAL_MONEY, Constant.START_MONEY) - (this.deposit*count))
                         .putInt(Constant.DEPOSIT, preferences.getInt(Constant.DEPOSIT, 0) + this.deposit*count)
                         .putStringSet(Constant.STOCKS, newSet)
                         .putInt(this.title+"count", preferences.getInt(this.title+"count", 0)+count)

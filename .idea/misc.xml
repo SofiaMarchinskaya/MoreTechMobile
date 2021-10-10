@@ -13,34 +13,33 @@
         <entry key="..\:/2/MoreTechMobile/app/src/main/res/drawable/states_button.xml" value="0.28541666666666665" />
         <entry key="..\:/2/MoreTechMobile/app/src/main/res/drawable/white_to_to.xml" value="0.36153846153846153" />
         <entry key="..\:/2/MoreTechMobile/app/src/main/res/layout/about_company_fragment.xml" value="0.40555555555555556" />
-        <entry key="..\:/2/MoreTechMobile/app/src/main/res/layout/activity_come_in.xml" value="0.33" />
+        <entry key="..\:/2/MoreTechMobile/app/src/main/res/layout/activity_come_in.xml" value="0.2" />
         <entry key="..\:/2/MoreTechMobile/app/src/main/res/layout/activity_first_register.xml" value="0.17603850050658562" />
         <entry key="..\:/2/MoreTechMobile/app/src/main/res/layout/activity_game.xml" value="0.234375" />
         <entry key="..\:/2/MoreTechMobile/app/src/main/res/layout/activity_homepage.xml" value="0.22" />
-        <entry key="..\:/2/MoreTechMobile/app/src/main/res/layout/activity_register.xml" value="0.1" />
+        <entry key="..\:/2/MoreTechMobile/app/src/main/res/layout/activity_register.xml" value="0.2" />
         <entry key="..\:/2/MoreTechMobile/app/src/main/res/layout/activity_rules.xml" value="0.26927083333333335" />
         <entry key="..\:/2/MoreTechMobile/app/src/main/res/layout/company_text_image.xml" value="0.234375" />
+        <entry key="..\:/2/MoreTechMobile/app/src/main/res/layout/dividents_fragment.xml" value="0.18541666666666667" />
+        <entry key="..\:/2/MoreTechMobile/app/src/main/res/layout/dividents_item.xml" value="0.20520833333333333" />
+        <entry key="..\:/2/MoreTechMobile/app/src/main/res/layout/end_of_turn_fragment.xml" value="0.25104166666666666" />
         <entry key="..\:/2/MoreTechMobile/app/src/main/res/layout/fragment_budget.xml" value="0.46875" />
         <entry key="..\:/2/MoreTechMobile/app/src/main/res/layout/fragment_graph.xml" value="0.234375" />
-        <entry key="..\:/2/MoreTechMobile/app/src/main/res/layout/game_fragment.xml" value="0.33" />
+        <entry key="..\:/2/MoreTechMobile/app/src/main/res/layout/fragment_second_news.xml" value="0.3177083333333333" />
+        <entry key="..\:/2/MoreTechMobile/app/src/main/res/layout/game_fragment.xml" value="0.1" />
         <entry key="..\:/2/MoreTechMobile/app/src/main/res/layout/invest_fragment.xml" value="0.234375" />
         <entry key="..\:/2/MoreTechMobile/app/src/main/res/layout/news_element.xml" value="0.234375" />
         <entry key="..\:/2/MoreTechMobile/app/src/main/res/layout/news_fragment.xml" value="0.20520833333333333" />
         <entry key="..\:/2/MoreTechMobile/app/src/main/res/layout/rule_item.xml" value="0.26927083333333335" />
         <entry key="..\:/2/MoreTechMobile/app/src/main/res/layout/step_two_fragment.xml" value="0.234375" />
         <entry key="..\:/2/MoreTechMobile/app/src/main/res/layout/stock_item.xml" value="0.33" />
+        <entry key="..\:/2/MoreTechMobile/app/src/main/res/layout/stock_market_fragment.xml" value="0.22" />
         <entry key="..\:/2/MoreTechMobile/app/src/main/res/menu/bottom_nav_menu.xml" value="0.20520833333333333" />
         <entry key="..\:/2/MoreTechMobile/app/src/main/res/menu/bottom_nav_menu_game.xml" value="0.36666666666666664" />
         <entry key="..\:/2/MoreTechMobile/app/src/main/res/menu/bottom_nav_menu_stock_market.xml" value="0.2015625" />
         <entry key="..\:/AndroidProg/MoreTechMobile/app/src/main/res/drawable/ic_logo.xml" value="0.1962962962962963" />
         <entry key="..\:/AndroidProg/MoreTechMobile/app/src/main/res/layout/activity_homepage.xml" value="0.1793478260869565" />
         <entry key="..\:/AndroidProg/MoreTechMobile/app/src/main/res/layout/activity_main.xml" value="0.1793478260869565" />
-        <entry key="..\:/AndroidProg/MoreTechMobile/app/src/main/res/layout/activity_register.xml" value="0.13541666666666666" />
-        <entry key="..\:/AndroidProg/MoreTechMobile/app/src/main/res/layout/dividents_item.xml" value="0.12360688956433637" />
-        <entry key="..\:/AndroidProg/MoreTechMobile/app/src/main/res/layout/end_of_turn_fragment.xml" value="0.264" />
-        <entry key="..\:/AndroidProg/MoreTechMobile/app/src/main/res/layout/end_of_turn_item.xml" value="0.12360688956433637" />
-        <entry key="..\:/AndroidProg/MoreTechMobile/app/src/main/res/layout/fragment_budget.xml" value="0.1" />
-        <entry key="..\:/AndroidProg/MoreTechMobile/app/src/main/res/layout/game_fragment.xml" value="0.13541666666666666" />
         <entry key="..\:/AndroidProg/MoreTechMobile/app/src/main/res/menu/bottom_nav_menu.xml" value="0.25416666666666665" />
       </map>
     </option>
