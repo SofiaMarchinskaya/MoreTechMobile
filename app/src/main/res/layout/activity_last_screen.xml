@@ -15,6 +15,7 @@
         android:layout_height="wrap_content"
         android:text="Ты на верном пути. Первые шаги в инвестициях уже сделаны!"
         android:fontFamily="@font/semibold"
+        android:textColor="@color/blueBlack"
         android:textSize="15sp"
         android:drawableLeft="@drawable/ic_crown"
         android:drawablePadding="6dp"
