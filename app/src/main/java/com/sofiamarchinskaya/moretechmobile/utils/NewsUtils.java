@@ -17,7 +17,7 @@ public class NewsUtils {
     private static Set<News> currentNews = new ArraySet<>();
 
     public static void init(){
-        allNews.add(new News("В третем квартале этого года более миллиона пользователей не смогли" +
+        allNews.add(new News("В третьем квартале этого года более миллиона пользователей не смогли" +
                 " войти в своми акканты в Instagram и WhatApp. Данный технический сбой болезнено " +
                 "сказался на мировой экономике.", Constant.BAD_NEWS, "Instagram"));
         allNews.add(new News("Intel анансоривала выход собсвенной игры в 2023 году. Она будет " +
