@@ -20,6 +20,7 @@ import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
 import com.sofiamarchinskaya.moretechmobile.models.Company;
 
+import java.time.Year;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -88,16 +89,16 @@ public class GameActivity extends AppCompatActivity implements GamePresenter.Vie
         setContentView(R.layout.activity_game);
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
         topTextView = findViewById(R.id.top_text);
-        topTextView.setText("Шаг  " + preferences.getString(Constant.YEAR, "1") + " из 10");
+        topTextView.setText("Шаг  " + (preferences.getInt(Constant.YEAR, 0) +1)+ " из 10");
         dotsLayout = findViewById(R.id.dots_layout);
         investedText = findViewById(R.id.invested_money);
-        investedText.setText(preferences.getInt(Constant.DEPOSIT, 0) + "");
+        investedText.setText(preferences.getInt(Constant.DEPOSIT, 0) + " ア");
         close = findViewById(R.id.close);
         budgetText = findViewById(R.id.budget);
         happyText = findViewById(R.id.percent_happy);
 
-        budgetText.setText(preferences.getInt(Constant.TOTAL_MONEY, Constant.START_MONEY) + "");
-        happyText.setText(preferences.getInt(Constant.HAPPY, Constant.START_HAPPY) + "");
+        budgetText.setText(preferences.getInt(Constant.TOTAL_MONEY, Constant.START_MONEY) + " ア");
+        happyText.setText(preferences.getInt(Constant.HAPPY, Constant.START_HAPPY) + " %");
         topDots = new ArrayList<>();
         int dip = 9;
         int margin = 6;
@@ -108,8 +109,23 @@ public class GameActivity extends AppCompatActivity implements GamePresenter.Vie
                 (int) px, (int) px);
         float m_px = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, margin,
                 getResources().getDisplayMetrics());
-
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < preferences.getInt(Constant.YEAR, 0)-1; i++) {
+            dot = new View(this);
+            dot.setBackgroundResource(R.drawable.ic_active_circle);
+            lParams.setMargins(0, 0, (int) m_px, 0);
+            dot.setLayoutParams(lParams);
+            topDots.add(dot);
+            dotsLayout.addView(dot, lParams);
+        }
+        LinearLayout.LayoutParams lParams1 = new LinearLayout.LayoutParams(
+                (int) px*2, (int) px);
+        dot = new View(this);
+        dot.setBackgroundResource(R.drawable.ic_current_year);
+        lParams1.setMargins(0, 0, (int) m_px, 0);
+        dot.setLayoutParams(lParams1);
+        topDots.add(dot);
+        dotsLayout.addView(dot, lParams1);
+        for (int i = preferences.getInt(Constant.YEAR, 0); i < 9; i++) {
 
             dot = new View(this);
             dot.setBackgroundResource(R.drawable.ic_circle);
@@ -166,6 +182,47 @@ public class GameActivity extends AppCompatActivity implements GamePresenter.Vie
         tabLayoutMediator.detach();
     }
 
+    public void nextYear(){
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+        investedText.setText(preferences.getInt(Constant.DEPOSIT, 0) + "");
+        budgetText.setText(preferences.getInt(Constant.TOTAL_MONEY, Constant.START_MONEY) + "");
+        happyText.setText( preferences.getInt(Constant.HAPPY, Constant.START_HAPPY)+"%");
+        dotsLayout.removeAllViews();
+        int dip = 9;
+        int margin = 6;
+        float px = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dip,
+                getResources().getDisplayMetrics());
+        LinearLayout.LayoutParams lParams = new LinearLayout.LayoutParams(
+                (int) px, (int) px);
+        float m_px = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, margin,
+                getResources().getDisplayMetrics());
+        for (int i = 0; i < preferences.getInt(Constant.YEAR, 0)-1; i++) {
+            dot = new View(this);
+            dot.setBackgroundResource(R.drawable.ic_active_circle);
+            lParams.setMargins(0, 0, (int) m_px, 0);
+            dot.setLayoutParams(lParams);
+            topDots.add(dot);
+            dotsLayout.addView(dot, lParams);
+        }
+        dot = new View(this);
+        dot.setBackgroundResource(R.drawable.ic_current_year);
+        lParams.setMargins(0, 0, (int) m_px, 0);
+        dot.setLayoutParams(lParams);
+        topDots.add(dot);
+        dotsLayout.addView(dot, lParams);
+        for (int i = preferences.getInt(Constant.YEAR, 0); i < 9; i++) {
+
+            dot = new View(this);
+            dot.setBackgroundResource(R.drawable.ic_circle);
+            lParams.setMargins(0, 0, (int) m_px, 0);
+            dot.setLayoutParams(lParams);
+            topDots.add(dot);
+            dotsLayout.addView(dot, lParams);
+        }
+        topTextView.setText("Шаг  " + (preferences.getInt(Constant.YEAR, 0)+1 )+ " из 10");
+        switchBackBottomNavMenu();
+    }
+
     @Override
     public void showBottomSheet(Company company, int[] dots) {
         if (tabLayoutMediator.isAttached()) return;
@@ -186,5 +243,10 @@ public class GameActivity extends AppCompatActivity implements GamePresenter.Vie
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
         ft.replace(R.id.investFragment, new StockMarketFragment());
         ft.commit();
+    }
+    public void switchBackBottomNavMenu(){
+        navigation.getMenu().clear();
+        navigation.inflateMenu(R.menu.bottom_nav_menu_game);
+
     }
 }

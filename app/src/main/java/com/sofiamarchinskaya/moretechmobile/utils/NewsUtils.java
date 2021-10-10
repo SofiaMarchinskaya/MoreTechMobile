@@ -63,6 +63,6 @@ public class NewsUtils {
             if (currentNews.toArray(exam)[i].getTitleCompany().equals(title))
                 return currentNews.toArray(exam)[i].getType();
         }
-        return Constant.NOTHING;
+        return Constant.GOOD_NEWS;
     }
 }

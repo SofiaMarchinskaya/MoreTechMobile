@@ -30,7 +30,7 @@ public class EndOfTurnAdapter extends  RecyclerView.Adapter<EndOfTurnAdapter.Vie
     @Override
     public EndOfTurnAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
-        View view = inflater.inflate(R.layout.news_element, parent, false);
+        View view = inflater.inflate(R.layout.dividents_item, parent, false);
         return new EndOfTurnAdapter.ViewHolder(view);
     }
 

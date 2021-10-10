@@ -17,13 +17,16 @@ public class Constant {
     public static final String IS_PAYED = "is_payed";
     public static final String COUNTER = "counter";
     public static final String STEP = "step";
-    public static final String GAME_STARTED = "game_started";
+    public static final String VIP_VAL = "vip_val";
+
 
 
     public static final int LVL_NOVICHEK = 0;
     public static final int LVL_PRODVIN = 1;
     public static final int LVL_PROFFESIONAL = 2;
-    public static final int PRICE_FOR_YEAR = 455650;
+    public static final int PRICE_FOR_YEAR = 256900;
+    public static final float KUP = 0.249f;
+    public static final float INF = 1.12f;
 
     public static final int START_MONEY = 500_000;
     public static final int START_HAPPY = 60;

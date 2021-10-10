@@ -93,8 +93,8 @@ public class gameFragment extends Fragment implements RuleAdapter.OnItemClicked 
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getActivity(),GameActivity.class);
-                if(preferences.getString(Constant.YEAR,null)==null) {
-                    preferences.edit().putString(Constant.YEAR, "1")
+                if(preferences.getInt(Constant.YEAR,-1)==-1) {
+                    preferences.edit().putInt(Constant.YEAR, 0)
                             .putInt(Constant.TOTAL_MONEY, Constant.START_MONEY)
                             .putInt(Constant.HAPPY, Constant.START_HAPPY)
                             .putStringSet(Constant.INVEST_BANK, new HashSet<String>())

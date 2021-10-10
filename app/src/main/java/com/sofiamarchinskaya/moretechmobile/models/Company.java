@@ -26,6 +26,7 @@ public class Company {
         this.imageResources = imageResources;
         this.affiliatedСompanies = affiliatedСompanies;
         preferences = PreferenceManager.getDefaultSharedPreferences(context);
+        preferences.edit().putInt(title+"first", deposit).apply();
     }
 
     public String getDescription() {
