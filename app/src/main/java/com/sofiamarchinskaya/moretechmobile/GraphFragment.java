@@ -4,6 +4,7 @@ import android.content.SharedPreferences;
 import android.graphics.Paint;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.util.ArraySet;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,6 +25,7 @@ import java.text.DateFormat;
 import java.text.DateFormatSymbols;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Set;
 
 public class GraphFragment extends Fragment {
     private String title;
@@ -80,9 +82,15 @@ public class GraphFragment extends Fragment {
             enable = (preferences.getInt(Constant.TOTAL_MONEY, 0)-Constant.PRICE_FOR_YEAR);
         }
         all.setOnClickListener(v -> {
+            Set<String> newSet = preferences.getStringSet(Constant.STOCKS, new ArraySet<>());
+            newSet.add(this.title);
             int count = enable/this.deposit;
             preferences.edit().putInt(Constant.TOTAL_MONEY, enable-(count*this.deposit))
                     .putInt(Constant.DEPOSIT, count*this.deposit+preferences.getInt(Constant.DEPOSIT, 0))
+                    .putStringSet(Constant.STOCKS, newSet)
+                    .putInt(this.title+"count", preferences.getInt(this.title+"count", 0)+count)
+                    .putInt(this.title+"deposit", this.deposit)
+                    .putInt(this.title+"image", this.imageRes)
                     .apply();
 
             InvestFragment.adapter.notifyDataSetChanged();
@@ -94,8 +102,14 @@ public class GraphFragment extends Fragment {
             int minus  = Integer.parseInt(editText.getText().toString());
             int count = minus/this.deposit;
             if (minus>0&& enable-minus>0&&count>0) {
+                Set<String> newSet = preferences.getStringSet(Constant.STOCKS, new ArraySet<>());
+                newSet.add(this.title);
                 preferences.edit().putInt(Constant.TOTAL_MONEY, enable - (this.deposit*count))
                         .putInt(Constant.DEPOSIT, preferences.getInt(Constant.DEPOSIT, 0) + this.deposit*count)
+                        .putStringSet(Constant.STOCKS, newSet)
+                        .putInt(this.title+"count", preferences.getInt(this.title+"count", 0)+count)
+                        .putInt(this.title+"deposit", this.deposit)
+                        .putInt(this.title+"image", this.imageRes)
                         .apply();
                 InvestFragment.adapter.notifyDataSetChanged();
                 ((GameActivity)getActivity()).close();

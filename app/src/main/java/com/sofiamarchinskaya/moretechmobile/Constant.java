@@ -16,6 +16,7 @@ public class Constant {
     public static final String LAST_INDEX= "lastindex";
     public static final String IS_PAYED = "is_payed";
     public static final String COUNTER = "counter";
+    public static final String STEP = "step";
 
 
     public static final int LVL_NOVICHEK = 0;

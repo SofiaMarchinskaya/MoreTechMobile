@@ -60,6 +60,11 @@ public class GameActivity extends AppCompatActivity implements GamePresenter.Vie
                     ft2.replace(R.id.investFragment,  new NewsFragment());
                     ft2.commit();
                     return true;
+                case R.id.news1:
+                    FragmentTransaction ft4 = getSupportFragmentManager().beginTransaction();
+                    ft4.replace(R.id.investFragment,  new SecondNewsFragment());
+                    ft4.commit();
+                    return true;
                 case R.id.dividenti:
                     FragmentTransaction ft3 = getSupportFragmentManager().beginTransaction();
                     ft3.replace(R.id.investFragment,  new DividentsFragment());
@@ -175,7 +180,7 @@ public class GameActivity extends AppCompatActivity implements GamePresenter.Vie
         navigation.getMenu().clear();
         navigation.inflateMenu(R.menu.bottom_nav_menu_stock_market);
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-        ft.replace(R.id.investFragment, new NewsFragment());
+        ft.replace(R.id.investFragment, new SecondNewsFragment());
         ft.commit();
     }
 }
