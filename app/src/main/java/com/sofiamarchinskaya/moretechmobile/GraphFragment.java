@@ -55,7 +55,7 @@ public class GraphFragment extends Fragment {
         Button set = view.findViewById(R.id.set);
         TextView possible = view.findViewById(R.id.possible);
         title.setText(this.title);
-        deposit.setText(this.deposit+" ₽");
+        deposit.setText(this.deposit+"  ア");
         imageView.setImageResource(imageRes);
         GraphView graph = view.findViewById(R.id.graph);
         LineGraphSeries<DataPoint> series = new LineGraphSeries<DataPoint>();

@@ -12,20 +12,19 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class DividentsAdapter extends RecyclerView.Adapter<DividentsAdapter.ViewHolder> {
     private final LayoutInflater inflater;
     private Context context;
-    SharedPreferences preferences ;
+    SharedPreferences preferences;
+
     DividentsAdapter(Context context) {
 
         this.inflater = LayoutInflater.from(context);
         this.context = context;
         preferences = PreferenceManager.getDefaultSharedPreferences(context);
     }
-
 
 
     @NonNull
@@ -37,26 +36,22 @@ public class DividentsAdapter extends RecyclerView.Adapter<DividentsAdapter.View
 
     @Override
     public void onBindViewHolder(@NonNull DividentsAdapter.ViewHolder holder, int position) {
-        if (preferences.getInt(Constant.STEP,1)>1) {
-            holder.layoutD.setVisibility(View.VISIBLE);
-            String[] m = preferences.getStringSet(Constant.STOCKS, new ArraySet<String>())
-                    .toArray(new String[0]);
-            if (preferences.getBoolean(m[position]+"isSell", false)){
-                holder.layoutD.setVisibility(View.INVISIBLE);
-            } else {
-                holder.companyName.setText(m[position]);
-                holder.image.setBackgroundResource(
-                        preferences.getInt(m[position] + "image", R.drawable.aibaba));
-                holder.divident.setText(
-                        "+ " + (preferences.getInt(m[position] + "deposit",
-                                (int) (preferences.getInt("Alibaba", 22690)*Math.pow(Constant.INF,
-                                                                        preferences.getInt(Constant.YEAR,0)))) * preferences
-                                .getInt(m[position] + "count", 1) *Constant.KUP) +
-                                "ア");
-            }
-        }else {
-            holder.layoutD.setVisibility(View.INVISIBLE);
-        }
+
+        holder.layoutD.setVisibility(View.VISIBLE);
+        String[] m = preferences.getStringSet(Constant.STOCKS, new ArraySet<String>())
+                .toArray(new String[0]);
+
+        holder.companyName.setText(m[position]);
+        holder.image.setBackgroundResource(
+                preferences.getInt(m[position] + "image", R.drawable.aibaba));
+        holder.divident.setText(
+                "+ " + (preferences.getInt(m[position] + "deposit",
+                        (int) (preferences.getInt("Alibaba", 22690) * Math.pow(Constant.INF,
+                                preferences.getInt(Constant.YEAR, 0)))) * preferences
+                        .getInt(m[position] + "count", 1) * Constant.KUP) +
+                        "ア");
+
+
     }
 
     @Override

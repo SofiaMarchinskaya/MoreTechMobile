@@ -1,5 +1,6 @@
 package com.sofiamarchinskaya.moretechmobile;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Paint;
 import android.os.Bundle;
@@ -47,9 +48,11 @@ public class StockMarketFragment extends Fragment {
         else {
             points = GraphUtils.generateDown();
         }
-
+        TextView dep = view.findViewById(R.id.deposite);
+        dep.setText(((int) (preferences.getInt("Alibaba", 22690)*Math.pow(Constant.INF,
+                preferences.getInt(Constant.YEAR,0)))+""));
         LineGraphSeries<DataPoint> series = new LineGraphSeries<DataPoint>();
-
+        if (preferences.getInt(Constant.STEP, 1)==1)
         for (int i = 0; i < points.length/3; i++) {
             series.appendData(new DataPoint(i, points[i]), false, points.length);
         }
@@ -82,9 +85,17 @@ public class StockMarketFragment extends Fragment {
             handler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
-                    ft.replace(R.id.investFragment, new EndOfTurnFragment());
-                    ft.commit();
+                    if (preferences.getInt(Constant.YEAR,0)>=9){
+                        Intent intent = new Intent(getContext(), LastScreenActivity.class);
+                        startActivity(intent);
+                        getActivity().finish();
+                    }
+                    else {
+                        FragmentTransaction ft =
+                                getActivity().getSupportFragmentManager().beginTransaction();
+                        ft.replace(R.id.investFragment, new EndOfTurnFragment());
+                        ft.commit();
+                    }
                 }
             }, 2000);
         });
@@ -102,9 +113,17 @@ public class StockMarketFragment extends Fragment {
                 handler.postDelayed(new Runnable() {
                     @Override
                     public void run() {
-                        FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
-                        ft.replace(R.id.investFragment, new EndOfTurnFragment());
-                        ft.commit();
+                        if (preferences.getInt(Constant.YEAR,0)>=9){
+                            Intent intent = new Intent(getContext(), LastScreenActivity.class);
+                            startActivity(intent);
+                            getActivity().finish();
+                        }
+                        else {
+                            FragmentTransaction ft =
+                                    getActivity().getSupportFragmentManager().beginTransaction();
+                            ft.replace(R.id.investFragment, new EndOfTurnFragment());
+                            ft.commit();
+                        }
                     }
                 }, 2000);
             }

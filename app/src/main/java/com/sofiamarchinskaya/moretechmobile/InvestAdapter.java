@@ -2,6 +2,8 @@ package com.sofiamarchinskaya.moretechmobile;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,10 +22,12 @@ public class InvestAdapter extends  RecyclerView.Adapter<InvestAdapter.ViewHolde
     private final LayoutInflater inflater;
     private List<Company> companies;
     private InvestAdapter.OnItemClicked onClick;
+    private SharedPreferences preferences;
 
     public InvestAdapter(Context context, List<Company> companies){
                this.companies = companies;
                this.inflater = LayoutInflater.from(context);
+               preferences = PreferenceManager.getDefaultSharedPreferences(context);
             }
     @NonNull
     @Override
@@ -36,7 +40,8 @@ public class InvestAdapter extends  RecyclerView.Adapter<InvestAdapter.ViewHolde
     public void onBindViewHolder(@NonNull InvestAdapter.ViewHolder holder, @SuppressLint("RecyclerView") int position) {
         Company companies = this.companies.get(position);
         holder.title.setText(companies.getTitle());
-        holder.deposite.setText(companies.getDeposit()+"₽");
+        holder.deposite.setText((int)(companies.getDeposit()*Math.pow(Constant.INF,
+                preferences.getInt(Constant.YEAR,0)))+" ア");
         holder.subtitle.setText(companies.getSubtitle());
         holder.img.setImageResource(companies.getImageResources());
 

@@ -137,7 +137,7 @@
         android:gravity="center"
         android:paddingTop="13dp"
         android:paddingBottom="10dp"
-        android:text=""
+        android:text="@string/or"
         android:textColor="#889099"
         android:drawableStart="@drawable/ic_horizontal"
         android:drawableEnd="@drawable/ic_horizontal"

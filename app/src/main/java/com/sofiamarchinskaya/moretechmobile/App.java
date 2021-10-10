@@ -1,6 +1,7 @@
 package com.sofiamarchinskaya.moretechmobile;
 
 import android.app.Application;
+import android.preference.PreferenceManager;
 
 
 import com.sofiamarchinskaya.moretechmobile.utils.NewsUtils;
@@ -19,6 +20,7 @@ public class App extends Application {
     public void onCreate() {
         super.onCreate();
         // TODO:  Поменять ссылку
+        PreferenceManager.getDefaultSharedPreferences(this).edit().putInt(Constant.STEP, 1).apply();
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("https://google.com/")//ставим снову url
                 .addConverterFactory(GsonConverterFactory.create())//добавляем конвертор

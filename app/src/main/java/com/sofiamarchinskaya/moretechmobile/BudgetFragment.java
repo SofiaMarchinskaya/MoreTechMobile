@@ -37,8 +37,8 @@ public class BudgetFragment extends Fragment {
         cards = new ArrayList<>();
         cards.add(new BudgetCard(R.drawable.ic_wallet, "Минимальные траты " +
                 "на жизнь за год", R.string.min_trati,
-                Constant.PRICE_FOR_YEAR*(int)Math.pow(Constant.INF,
-                preferences.getInt(Constant.YEAR,0)), 16));
+                (int)(Constant.PRICE_FOR_YEAR*Math.pow(Constant.INF,
+                preferences.getInt(Constant.YEAR,0))), 16));
         cards.add(new BudgetCard(R.drawable.ic_car, "Путешествие " +
                 "со всей семьёй", R.string.travel, 21550, 5));
         cards.add(new BudgetCard(R.drawable.ic_gift, "Подарки для коллег " +
@@ -50,14 +50,14 @@ public class BudgetFragment extends Fragment {
         cards.add(new BudgetCard(R.drawable.ic_tick_square, "Основные решения " +
                 "приняты", R.string.final_card, Constant.PRICE_FOR_YEAR, 16));
         Button pay = result.findViewById(R.id.pay);
-        pay.setText(455650*(int)Math.pow(Constant.INF,
-                preferences.getInt(Constant.YEAR,0))+" ア");
+        pay.setText((int)(455650*Math.pow(Constant.INF,
+                preferences.getInt(Constant.YEAR,0)))+" ア");
         Button pay1 = result.findViewById(R.id.pay1);
-        pay1.setText(455650*(int)Math.pow(Constant.INF,
-                preferences.getInt(Constant.YEAR,0))+" ア");
+        pay1.setText((int)(455650*Math.pow(Constant.INF,
+                preferences.getInt(Constant.YEAR,0)))+" ア");
         Button pay2 = result.findViewById(R.id.pay2);
-        pay2.setText(455650*(int)Math.pow(Constant.INF,
-                preferences.getInt(Constant.YEAR,0))+" ア");
+        pay2.setText((int)(455650*Math.pow(Constant.INF,
+                preferences.getInt(Constant.YEAR,0)))+" ア");
         counter = preferences.getInt(Constant.COUNTER, 0);
 
         acceptButton = result.findViewById(R.id.tick_square);

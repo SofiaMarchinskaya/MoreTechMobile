@@ -116,7 +116,7 @@
         android:layout_marginRight="24dp"
         android:background="@drawable/states_button"
         android:fontFamily="@font/semibold"
-        android:text="@string/or"
+        android:text="@string/register"
         app:layout_constraintBottom_toTopOf="@id/bottom_text">
 
     </Button>

@@ -109,7 +109,7 @@ public class GameActivity extends AppCompatActivity implements GamePresenter.Vie
                 (int) px, (int) px);
         float m_px = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, margin,
                 getResources().getDisplayMetrics());
-        for (int i = 0; i < preferences.getInt(Constant.YEAR, 0)-1; i++) {
+        for (int i = 0; i < preferences.getInt(Constant.YEAR, 0); i++) {
             dot = new View(this);
             dot.setBackgroundResource(R.drawable.ic_active_circle);
             lParams.setMargins(0, 0, (int) m_px, 0);
@@ -121,7 +121,7 @@ public class GameActivity extends AppCompatActivity implements GamePresenter.Vie
                 (int) px*2, (int) px);
         dot = new View(this);
         dot.setBackgroundResource(R.drawable.ic_current_year);
-        lParams1.setMargins(0, 0, (int) m_px, 0);
+        lParams1.setMargins((int)m_px, 0, (int) m_px, 0);
         dot.setLayoutParams(lParams1);
         topDots.add(dot);
         dotsLayout.addView(dot, lParams1);
@@ -190,13 +190,14 @@ public class GameActivity extends AppCompatActivity implements GamePresenter.Vie
         dotsLayout.removeAllViews();
         int dip = 9;
         int margin = 6;
+        //перевод в dp
         float px = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dip,
                 getResources().getDisplayMetrics());
         LinearLayout.LayoutParams lParams = new LinearLayout.LayoutParams(
                 (int) px, (int) px);
         float m_px = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, margin,
                 getResources().getDisplayMetrics());
-        for (int i = 0; i < preferences.getInt(Constant.YEAR, 0)-1; i++) {
+        for (int i = 0; i < preferences.getInt(Constant.YEAR, 0); i++) {
             dot = new View(this);
             dot.setBackgroundResource(R.drawable.ic_active_circle);
             lParams.setMargins(0, 0, (int) m_px, 0);
@@ -204,12 +205,14 @@ public class GameActivity extends AppCompatActivity implements GamePresenter.Vie
             topDots.add(dot);
             dotsLayout.addView(dot, lParams);
         }
+        LinearLayout.LayoutParams lParams1 = new LinearLayout.LayoutParams(
+                (int) px*2, (int) px);
         dot = new View(this);
         dot.setBackgroundResource(R.drawable.ic_current_year);
-        lParams.setMargins(0, 0, (int) m_px, 0);
-        dot.setLayoutParams(lParams);
+        lParams1.setMargins((int)m_px, 0, (int) m_px, 0);
+        dot.setLayoutParams(lParams1);
         topDots.add(dot);
-        dotsLayout.addView(dot, lParams);
+        dotsLayout.addView(dot, lParams1);
         for (int i = preferences.getInt(Constant.YEAR, 0); i < 9; i++) {
 
             dot = new View(this);
@@ -227,7 +230,7 @@ public class GameActivity extends AppCompatActivity implements GamePresenter.Vie
     public void showBottomSheet(Company company, int[] dots) {
         if (tabLayoutMediator.isAttached()) return;
         adapter = new FragmentAdapter(this);
-        adapter.setData(company, dots);
+        adapter.setData(company, dots, this);
         pager.setAdapter(adapter);
         tabLayoutMediator.attach();
         bottomSheetBehaviour.setState(BottomSheetBehavior.STATE_EXPANDED);

@@ -1,5 +1,8 @@
 package com.sofiamarchinskaya.moretechmobile;
 
+import android.content.Context;
+import android.preference.PreferenceManager;
+
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
@@ -12,15 +15,17 @@ import java.util.List;
 public class FragmentAdapter extends FragmentStateAdapter {
     private Company company;
     private int[] point;
+    private Context context;
 
     public FragmentAdapter(
             @NonNull FragmentActivity fragment) {
         super(fragment);
     }
 
-    public void setData(Company company, int [] point) {
+    public void setData(Company company, int [] point, Context context) {
        this.company = company;
         this.point = point;
+        this.context = context;
     }
 
     @NonNull
@@ -32,7 +37,8 @@ public class FragmentAdapter extends FragmentStateAdapter {
                         company.getDescription(), company.getAffiliatedCompanies());
             default:
                 return new GraphFragment(company.getTitle(), company.getImageResources(),
-                        company.getDeposit(), point);
+                        (int)(company.getDeposit()*Math.pow(Constant.INF,
+                                PreferenceManager.getDefaultSharedPreferences(context).getInt(Constant.YEAR,0))), point);
         }
     }
 

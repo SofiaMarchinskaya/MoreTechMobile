@@ -55,14 +55,21 @@ public class EndOfTurnFragment extends Fragment {
         adapter = new EndOfTurnAdapter(elems,getContext());
         RecyclerView recyclerView = result.findViewById(R.id.list);
         recyclerView.setAdapter(adapter);
+        int happy;
+        if (preferences.getInt(Constant.HAPPY, 0) + 2 > 100) happy = 100;
+        else
+            happy = preferences.getInt(Constant.HAPPY, 0) + 2;
+
         preferences.edit().putInt(Constant.TOTAL_MONEY, preferences.getInt(Constant.TOTAL_MONEY,
                 0)+add+500000)
                 .putInt(Constant.YEAR, preferences.getInt(Constant.YEAR, 0)+1)
-                .putInt(Constant.HAPPY, preferences.getInt(Constant.HAPPY, 0)+2)
+                .putInt(Constant.HAPPY, happy)
                 .putInt(Constant.COUNTER, 0)
                 .apply();
         ((GameActivity)getActivity()).nextYear();
-
+        preferences.edit().putInt(Constant.WITH_STOKS,
+                preferences.getInt(Constant.WITH_STOKS, 0)+add )
+                .apply();
         return result;
     }
 
